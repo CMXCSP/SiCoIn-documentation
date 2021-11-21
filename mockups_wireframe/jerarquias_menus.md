@@ -1,0 +1,61 @@
+# Estructura de menus
+
+## DashBoard
+- Intervenciones en proceso
+    * Tránsito
+    * Bienes
+    * Mecánicos
+- Pendientes de datos
+
+
+## Menu superior
+- Operación diaria
+    - Nueva intervención*
+        * Procedimiento por daño (4 hrs)
+        * Daño patrimonial (constancia o bache; vehículo en el Juzgado)
+        * Valuación Mecánica (con folio)
+        * Valuación de bienes (con folio)
+        * Carpeta de Investigación (Expediente del MP sin 4 hrs.) 
+        * Otras valuaciones (solo perito de bienes {graffiti, arrancones, etc.})
+    - Peritos en turno (asignación)
+    - Consulta Agendas de valuación
+        * Bienes muebles e inmbuebles
+        * Valuación mecánica
+    - Bitacora (API wordpress)'
+
+
+- Directorio
+    - Juzgados
+    - Depositos
+    - Conclusiones
+    - Base de vehiculos
+    - Colonias'
+
+
+- Intervenciones
+    - Nueva intervención
+        * 
+    - Consulta de intervenciones
+        * Folio
+    - Corregir intervención
+    - Antigua base de datos
+
+
+- Busqueda
+    - Folio
+    - Boleta
+    - Otros criterios
+
+
+- Informes
+    - Consulta dictamenes por perito
+    - Demasias de tiempo
+    - Folio único de intervención
+    - Exportar a ...
+
+
+- Recursos
+
+
+- Administrar
+
