@@ -1,11 +1,13 @@
 # Estructura de menus
 
 ## DashBoard
-- Intervenciones en proceso
+- Intervenciones en proceso (folio, expediente, perito, tiempos) 
     * Tránsito
     * Bienes
     * Mecánicos
 - Pendientes de datos
+- Peritos en turno (nombre, adscripción, intervenciones) 
+- Álgun gráfico
 
 
 ## Menu superior
