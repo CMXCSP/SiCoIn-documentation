@@ -13,12 +13,13 @@
 ## Menu superior
 - Operación diaria
     - Nueva intervención*
-        * Procedimiento por daño (4 hrs)
+        * Procedimiento por daño (4 hrs, expediente nuevo)
         * Daño patrimonial (constancia o bache; vehículo en el Juzgado)
         * Valuación Mecánica (con folio)
         * Valuación de bienes (con folio)
         * Carpeta de Investigación (Expediente del MP sin 4 hrs.) 
         * Otras valuaciones (solo perito de bienes {graffiti, arrancones, etc.})
+        * Ampliación de dictamen (Ya existe un folio de solicitud previo)
     - Peritos en turno (asignación)
     - Consulta Agendas de valuación
         * Bienes muebles e inmbuebles
