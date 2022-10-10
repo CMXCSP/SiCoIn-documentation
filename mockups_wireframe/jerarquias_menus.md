@@ -10,8 +10,7 @@
 - Álgun gráfico
 
 
-## Menu superior
-- Operación diaria
+## Menu Operación diaria
     - Nueva intervención*
         * Procedimiento por daño (4 hrs, expediente nuevo)
         * Daño patrimonial (constancia o bache, o solo valuación; vehículo en el Juzgado)
@@ -23,12 +22,13 @@
             * Valuación de bienes (con folio)
             * Ampliación de dictamen 
     - Peritos en turno (asignación)
-    - Consulta Agendas de valuación
+    - Asignar perito de valuación (agenda)
         * Bienes muebles e inmbuebles
         * Valuación mecánica
-    - Bitacora (API wordpress)'
+    - Editar intervención
 
 
+## Menu Lateral
 - Directorio
     - Juzgados
     - Depositos
@@ -38,18 +38,16 @@
 
 
 - Intervenciones
-    - Nueva intervención
-        * 
-    - Consulta de intervenciones
-        * Folio
-    - Corregir intervención
+    - Turnos Peritos
+    - Intervenciones por dia
+    - Consulta Agendas de valuación
+        * Bienes muebles e inmbuebles
+        * Valuación mecánica
     - Antigua base de datos
-
-
-- Busqueda
-    - Folio
-    - Boleta
-    - Otros criterios
+    - Busqueda
+        - Folio
+        - Boleta
+        - Otros criterios (placa, conductor, etc)
 
 
 - Informes
@@ -60,7 +58,7 @@
 
 
 - Recursos
-
+    - Bitacora (API wordpress)'
 
 - Administrar
 
