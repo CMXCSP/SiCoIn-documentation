@@ -39,28 +39,28 @@
     - Colonias'
 
 
-- Intervenciones
+- Operatividad
     - Turnos Peritos
     - Intervenciones por dia
     - Consulta Agendas de valuación
         * Bienes muebles e inmbuebles
         * Valuación mecánica
+    - Intervenciones pendientes (Av.Previa, Pendientes de datos)
     - Antigua base de datos
-    - Busqueda
-        - Folio
-        - Boleta
-        - Otros criterios (placa, conductor, etc)
+- Busqueda
+    - Folio
+    - Boleta
+    - Otros criterios (placa, conductor, etc)
 
 
 - Informes
     - Consulta dictamenes por perito
     - Demasias de tiempo
-    - Folio único de intervención
+    - Folio único (expediente e intervenciones)
     - Exportar a ...
 
-
-- Recursos
-    - Bitacora (API wordpress)'
-
 - Administrar
+    - Recursos
+        - Bitacora (API wordpress)'
+
 
