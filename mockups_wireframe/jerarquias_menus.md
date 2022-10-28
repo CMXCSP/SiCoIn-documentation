@@ -16,12 +16,14 @@
         * Daño patrimonial (constancia o bache, o solo valuación; vehículo en el Juzgado)
         * Carpeta de Investigación (Expediente del MP sin 4 hrs.) 
         * Otras valuaciones (solo perito de bienes {graffiti, arrancones, etc.})
+        * Revisión Técnica
 
     - Nueva intervención (nuevo dictamen en el expediente)*
         * ___(Ya existe un folio de solicitud previo)___
             * Valuación Mecánica (con folio)
             * Valuación de bienes (con folio)
-            * Ampliación de dictamen 
+            * Ampliación de dictamen
+            * Revisión Técnica
     - Asignar perito
         - Tránsito
         - Valuación (agenda)
