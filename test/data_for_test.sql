@@ -1,10 +1,11 @@
 
-/*!40000 ALTER TABLE * DISABLE KEYS */;
+-- /*!40000 ALTER TABLE * DISABLE KEYS */;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- Tabla personal_operativo
 INSERT INTO `personal_operativo` (`no_empleado`, `nombres`, `primer_apellido`, `segundo_apellido`, `nombramiento`, `CURP`, `activo`) VALUES
 	('10244100', 'Alberto', 'B', NULL, 'PTT', 'ALBE2000HMX', 1),
-	('10244199', 'Alexandro', 'A', NULL, 'PTT', 'ALEX200000HMX', 1),
+	('10244199', 'Alexandro', 'Al', NULL, 'PTT', 'ALEX200000HMX', 1),
     ('900156', 'Pitagoras', 'de Grecia', NULL, 'PTT', 'PETE150601HEU', 0),
 	('1034123', 'Christina', 'S', NULL, 'JC', 'CRIS20050830MMX', 1),
 	('10348555', 'Ana', 'H', NULL, 'JC', 'ANAS2000MMX', 1),
@@ -21,22 +22,22 @@ INSERT INTO `personal_operativo` (`no_empleado`, `nombres`, `primer_apellido`, `
 	;
 
 -- tabla personal_en_funciones
-INSERT INTO `personal_en_funciones` (`no_empleado`, `dia_asistencia`, `turno`, `estado_asistencia`, `actividad`) VALUES
-	('10068663', '2022-02-13', '24x48_T3_08-08', 'A', 'perito'),
-	('10244100', '2022-02-13', '24x48_T3_08-08', 'A', 'coordinador'),
-	('10244199', '2022-02-13', '24x48_T3_08-08', 'A', 'coordinador'),
-	('1034123555', '2022-02-13', '24x48_T3_08-08', 'E', 'juzgador'),
-	('1034855555', '2022-02-13', '24x48_T3_08-08', 'E', 'juzgador'),
-	('1035862855', '2022-02-13', '24x48_T3_08-08', 'E', 'juzgador'),
-	('10478554', '2022-02-13', '24x48_T3_08-08', 'A', 'perito'),
-	('10778692', '2022-02-13', '24x48_T3_08-08', 'A', 'perito'),
-	('10968682', '2022-02-13', '24x48_T3_08-08', 'A', 'valuador'),
-	('11668641', '2022-02-13', '24x48_T3_08-08', 'A', 'mecanico'),
-	('11768692', '2022-02-13', '24x48_T3_08-08', 'A', 'valuador'),
-	('11868663', '2022-02-13', '24x48_T3_08-08', 'A', 'perito'),
-	('11968636', '2022-02-13', '24x48_T3_08-08', 'A', 'perito'),
-	('17678641', '2022-02-13', '24x48_T3_08-08', 'A', 'mecanico'),
-	('900156', '2022-02-13', '24x48_T3_08-08', 'A', 'coordinador')
+INSERT INTO `personal_en_funciones` (`no_empleado`, `dia_asistencia`, `turno`, `id_juzgado_adscrito`, `estado_asistencia`, `actividad`) VALUES
+	('10068663', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'perito'),
+	('10244100', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'coordinador'),
+	('10244199', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'coordinador'),
+	('1034123555', '2022-02-13', '24x48_T3_08-08', 11, 'E', 'juzgador'),
+	('1034855555', '2022-02-13', '24x48_T3_08-08', 11, 'E', 'juzgador'),
+	('1035862855', '2022-02-13', '24x48_T3_08-08', 11, 'E', 'juzgador'),
+	('10478554', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'perito'),
+	('10778692', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'perito'),
+	('10968682', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'valuador'),
+	('11668641', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'mecanico'),
+	('11768692', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'valuador'),
+	('11868663', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'perito'),
+	('11968636', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'perito'),
+	('17678641', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'mecanico'),
+	('900156', '2022-02-13', '24x48_T3_08-08', 11, 'A', 'coordinador')
     ;
 
 -- Tabla procedimiento
@@ -74,7 +75,7 @@ INSERT INTO `intervencion_personas` (`id`, `idfolioDictamen`, `noempleado_person
 	(3, 1, '10068663', 'Titular'),
 	(4, 2, '1034855555', 'J_Solicita'),
 	(5, 2, '10244100', 'C_Asigna'),
-    (2, 1, '900156', 'C_Recolecta'),
+    (23, 1, '900156', 'C_Recolecta'),
 	(6, 2, '10478554', 'Titular'),
 	(7, 3, '1034855555', 'J_Solicita'),
 	(8, 3, '10244199', 'C_Asigna'),
@@ -97,5 +98,5 @@ INSERT INTO `intervencion_personas` (`id`, `idfolioDictamen`, `noempleado_person
     (22, 13, '17678641', 'Titular')
     ;
 
-
-/*!40000 ALTER TABLE * ENABLE KEYS */;
+SET FOREIGN_KEY_CHECKS=1;
+-- /*!40000 ALTER TABLE * ENABLE KEYS */;
