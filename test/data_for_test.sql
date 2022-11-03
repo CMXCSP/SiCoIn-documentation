@@ -53,7 +53,7 @@ INSERT INTO `procedimiento` (`pyear`, `id`, `id_juzgado`, `procedimiento`, `expe
 	;
 
 -- tabla intervencion
-INSERT INTO `intervencion` (`folioDictamen`, `id_procedimiento`, `estado`, `especialidad`, `solicitud`, `intervencion`, `entrega`, `extension`, `id_tipo_hecho`, `documento`) VALUES
+INSERT INTO `intervencion` (`folioDictamen`, `id_procedimiento`, `estado`, `especialidad`, `solicitud`, `intervencion`, `entrega`, `extension`, `id_conclusiones`, `documento`) VALUES
 	(1, 1, 'Concluido', 'transito', '2022-02-13 15:01', '2022-02-13 16:01', '2022-02-13 20:01', NULL, 1, 'Dictamen'),
 	(2, 2, 'Concluido', 'transito', '2022-02-13 15:31', '2022-02-13 16:31', '2022-02-13 20:31', NULL, 2, 'Dictamen'),
 	(3, 3, 'Pendiente', 'transito', '2022-02-13 15:41', '2022-02-13 16:41', NULL, NULL, 3, 'Dictamen'),
