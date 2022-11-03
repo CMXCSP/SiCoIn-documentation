@@ -105,7 +105,8 @@ INSERT INTO `involucrado_vehiculo_unico`(`id_procedimiento`, `no_vi`, `id_deposi
 				 `genero`, `edad`, `lesionado`, `responsable`, `request_val_mecanica`) 
 	VALUES 
 	(2, 2, 15, '2022-02-13 12:30', NULL, 'Bicimex', 'Montaña', 6, NULL, NULL, NULL, 0, NULL, 'Bernard Hinault', 'Masculino', 20, 1, 0, 0),
-	(1, 2, 9, '2022-02-13 12:25', NULL, 'Made in Mexico', 'Hechiza', 7, NULL, NULL, NULL, 0, NULL, 'Tomas Alvarez Ed', 'Masculino', 40, 0, 0, 0)
+	(1, 2, 9, '2022-02-13 12:25', NULL, 'Made in Mexico', 'Hechiza', 7, NULL, NULL, NULL, 0, NULL, 'Tomas Alvarez Ed', 'Masculino', 40, 0, 0, 0),
+	(4, 1, NULL, '2022-02-13 12:25', NULL, 'Cummins', 'Traslado Material peligroso', 7, NULL, NULL, NULL, 0, NULL, 'Kevin B', 'Masculino', 18, 0, 0, 0)
 	;
 
 INSERT INTO `involucrado_vehiculo`(`id_procedimiento`, `no_vi`, `id_deposito`, `resguardo_date`, `resguardo_no`, `id_submarcas`, 
@@ -115,9 +116,12 @@ INSERT INTO `involucrado_vehiculo`(`id_procedimiento`, `no_vi`, `id_deposito`, `
 	(1, 1, 9, '2022-02-13 12:38', '123456', 8, 3, 2015, 'Negro', 'ASD1235', 1, 7, 'Filomeno Mata', 'Masculino', 32, 0, 1, 0),
 	(1, 3, 17, '2022-02-13 11:00', '123457', 91, 3, 2010, 'Azul', 'ZZZ0000', 0, NULL, 'Hermenejildo Galeana', 'Masculino', 30, 0, 0, 1),
 	(1, 4, 9, '2022-02-13 12:30', '123458', 173, 3, 2012, 'Verde', 'RRR5679', 1, 12, 'Macaria Sifuentes', 'Femenino', 30, 0, 0, 1),
+	(1, 5, 9, '2022-02-13 12:30', '123488', 174, 3, 2000, 'Gris', 'POD098', 1, 12, 'Mario Bros', '', 30, 0, 0, 1),
 	(2, 1, 15, '2022-02-13 12:20', '987654', 311, 19, 2020, 'Blanco', 'DFG852', 1, 19, 'Elsa Ice', 'Femenino', 22, 0, 1, 0),
 	(3, 1, 17, '2022-02-13 11:00', '123457', 350, 3, 2015, 'Azul', 'S/P', 0, NULL, 'Leonardo Diaz', 'Masculino', 20, 0, 0, 1),
-	(3, 2, 9, '2022-02-13 12:30', '123458', 350, 3, 2014, 'Verde', 'RSD9', 0, NULL, 'Brad Perez', 'Masculino', 22, 0, 1, 0)
+	(3, 2, 9, '2022-02-13 12:30', '123458', 350, 3, 2014, 'Verde', 'RSD9', 0, NULL, 'Brad Perez', 'Masculino', 22, 0, 1, 0),
+	(4, 2, 24, '2022-02-13 12:30', '123458', 350, 3, 2014, 'Verde', 'RSD9', 0, NULL, 'Brad Perez', 'Masculino', 22, 0, 1, 0),
+	(5, 1, NULL, '2022-02-13 11:00', NULL, 94, 3, 2015, 'Rosa/Blanco', 'S/P', NULL, NULL, 'Leo Dan', 'Masculino', 30, 0, 0, 0)
 	;
 
 
