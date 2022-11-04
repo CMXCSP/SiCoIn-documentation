@@ -49,10 +49,11 @@ INSERT INTO `procedimiento` (`pyear`, `id`, `id_juzgado`, `procedimiento`, `expe
 	('2022', 5, 25, 'Carpeta', 'CUH-5/DSS/T3/CI-SICUH/CUH-2/UI-1C/D/02411/09-2022/090'),
 	('2022', 6, 16, 'Patrimonial', 'COY-3/BSS/T3/C436274/10-02-2022'),
 	('2022', 7, 12, 'Patrimonial', 'BJU4/BSS/T1/288/29/07/2022/012'),
-	('2022', 8, 33, 'Valuación', 'GAM-3/BSS/TM/graffiti/1872022/76')
+	('2022', 8, 33, 'Valuación', 'GAM-3/BSS/TM/graffiti/1872022/76'),
+	('2022', 9, 53, 'Daño', 'MIH-1/SS/TM/123/2022/76')	/* procedimiento sin intervenciones */
 	;
 
--- tabla intervencion
+-- tabla intervencion	(NO puede existir intervencion sin procedimiento)
 INSERT INTO `intervencion` (`folioDictamen`, `id_procedimiento`, `estado`, `especialidad`, `solicitud`, `intervencion`, `entrega`, `extension`, `id_conclusiones`, `documento`) VALUES
 	(1, 1, 'Concluido', 'transito', '2022-02-13 15:01', '2022-02-13 16:01', '2022-02-13 20:01', NULL, 1, 'Dictamen'),
 	(2, 2, 'Concluido', 'transito', '2022-02-13 15:31', '2022-02-13 16:31', '2022-02-13 20:31', NULL, 2, 'Dictamen'),
