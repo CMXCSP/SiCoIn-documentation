@@ -1,5 +1,4 @@
 
--- /*!40000 ALTER TABLE * DISABLE KEYS */;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- Tabla personal_operativo
@@ -101,15 +100,6 @@ INSERT INTO `intervencion_personas` (`id`, `idfolioDictamen`, `noempleado_person
 
 
 -- vehiculos involucrados
-INSERT INTO `involucrado_vehiculo_unico`(`id_procedimiento`, `no_vi`, `id_deposito`, `resguardo_date`, `resguardo_no`, `marca`, `tipo`, 
-				`id_class_all_involved`, `modelo`, `color`, `placas`, `asegurado`, `id_insurancecompany`, `nombre_conductor`,
-				 `genero`, `edad`, `lesionado`, `responsable`, `request_val_mecanica`) 
-	VALUES 
-	(2, 2, 15, '2022-02-13 12:30', NULL, 'Bicimex', 'Montaña', 6, NULL, NULL, NULL, 0, NULL, 'Bernard Hinault', 'Masculino', 20, 1, 0, 0),
-	(1, 2, 9, '2022-02-13 12:25', NULL, 'Made in Mexico', 'Hechiza', 7, NULL, NULL, NULL, 0, NULL, 'Tomas Alvarez Ed', 'Masculino', 40, 0, 0, 0),
-	(4, 1, NULL, '2022-02-13 12:25', NULL, 'Cummins', 'Traslado Material peligroso', 7, NULL, NULL, NULL, 0, NULL, 'Kevin B', 'Masculino', 18, 0, 0, 0)
-	;
-
 INSERT INTO `involucrado_vehiculo`(`id_procedimiento`, `no_vi`, `id_deposito`, `resguardo_date`, `resguardo_no`, `id_submarcas`, 
 				`id_class_all_involved`, `modelo`, `color`, `placas`, `asegurado`, `id_insurancecompany`, `nombre_conductor`, 
 				`genero`, `edad`, `lesionado`, `responsable`, `request_val_mecanica`) 
@@ -127,4 +117,3 @@ INSERT INTO `involucrado_vehiculo`(`id_procedimiento`, `no_vi`, `id_deposito`, `
 
 
 SET FOREIGN_KEY_CHECKS=1;
--- /*!40000 ALTER TABLE * ENABLE KEYS */;
