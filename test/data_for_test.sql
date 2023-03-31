@@ -21,22 +21,22 @@ INSERT INTO `personal_operativo` (`no_empleado`, `nombres`, `primer_apellido`, `
 	;
 
 -- tabla adscripciones del personal operativo
-INSERT INTO `adscripciones_po` (`no_empleado`, `turno`, `id_juzgado`, `actividad`) VALUES
-	('10068663', '24x48_T3_08-08', 11, 'perito'),
-	('10244100', '24x48_T3_08-08', 11, 'coordinador'),
-	('10244199', '24x48_T3_08-08', 11, 'coordinador'),
-	('1034123555', '24x48_T3_08-08', 11, 'juzgador'),
-	('1034855555', '24x48_T3_08-08', 11, 'juzgador'),
-	('1035862855', '24x48_T3_08-08', 11, 'juzgador'),
-	('10478554', '24x48_T3_08-08', 11, 'perito'),
-	('10778692', '24x48_T3_08-08', 11, 'perito'),
-	('10968682', '24x48_T3_08-08', 11, 'valuador'),
-	('11668641', '24x48_T3_08-08', 11, 'mecanico'),
-	('11768692', '24x48_T3_08-08', 11, 'valuador'),
-	('11868663', '24x48_T3_08-08', 11, 'perito'),
-	('11968636', '24x48_T3_08-08', 11, 'perito'),
-	('17678641', '24x48_T3_08-08', 11, 'mecanico'),
-	('900156', '24x48_T3_08-08', 11, 'coordinador')
+INSERT INTO `adscripciones_po` (`no_empleado`, `turno`, `juzgado`, `actividad`) VALUES
+	('10068663', '24x48_T3_08-08', 'BJU-03', 'perito'),
+	('10244100', '24x48_T3_08-08', 'BJU-03', 'coordinador'),
+	('10244199', '24x48_T3_08-08', 'BJU-03', 'coordinador'),
+	('1034123555', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
+	('1034855555', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
+	('1035862855', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
+	('10478554', '24x48_T3_08-08', 'BJU-03', 'perito'),
+	('10778692', '24x48_T3_08-08', 'BJU-03', 'perito'),
+	('10968682', '24x48_T3_08-08', 'BJU-03', 'valuador'),
+	('11668641', '24x48_T3_08-08', 'BJU-03', 'mecanico'),
+	('11768692', '24x48_T3_08-08', 'BJU-03', 'valuador'),
+	('11868663', '24x48_T3_08-08', 'BJU-03', 'perito'),
+	('11968636', '24x48_T3_08-08', 'BJU-03', 'perito'),
+	('17678641', '24x48_T3_08-08', 'BJU-03', 'mecanico'),
+	('900156', '24x48_T3_08-08', 'BJU-03', 'coordinador')
     ;
 
 -- tabla personal_en_funciones
