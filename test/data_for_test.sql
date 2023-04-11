@@ -2,7 +2,7 @@
 SET FOREIGN_KEY_CHECKS=0;
 
 -- Tabla personal_operativo
-INSERT INTO `personal_operativo` (`no_empleado`, `nombres`, `primer_apellido`, `segundo_apellido`, `nombramiento`, `CURP`, `activo`) VALUES
+INSERT INTO `personal_operativo` (`id`, `nombres`, `primer_apellido`, `segundo_apellido`, `nombramiento`, `CURP`, `activo`) VALUES
 	('10244100', 'Alberto', 'B', NULL, 'PTT', 'ALBE2000HMX', 1),
 	('10244199', 'Alexandro', 'Al', NULL, 'PTT', 'ALEX200000HMX', 1),
     ('900156', 'Pitagoras', 'de Grecia', NULL, 'PTT', 'PETE150601HEU', 0),
@@ -21,45 +21,45 @@ INSERT INTO `personal_operativo` (`no_empleado`, `nombres`, `primer_apellido`, `
 	;
 
 -- tabla adscripciones del personal operativo
-INSERT INTO `adscripciones_po` (`no_empleado`, `turno`, `juzgado`, `actividad`) VALUES
-	('10068663', '24x48_T3_08-08', 'BJU-03', 'perito'),
-	('10244100', '24x48_T3_08-08', 'BJU-03', 'coordinador'),
-	('10244199', '24x48_T3_08-08', 'BJU-03', 'coordinador'),
-	('1034123555', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
-	('1034855555', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
-	('1035862855', '24x48_T3_08-08', 'BJU-03', 'juzgador'),
-	('10478554', '24x48_T3_08-08', 'BJU-03', 'perito'),
-	('10778692', '24x48_T3_08-08', 'BJU-03', 'perito'),
-	('10968682', '24x48_T3_08-08', 'BJU-03', 'valuador'),
-	('11668641', '24x48_T3_08-08', 'BJU-03', 'mecanico'),
-	('11768692', '24x48_T3_08-08', 'BJU-03', 'valuador'),
-	('11868663', '24x48_T3_08-08', 'BJU-03', 'perito'),
-	('11968636', '24x48_T3_08-08', 'BJU-03', 'perito'),
-	('17678641', '24x48_T3_08-08', 'BJU-03', 'mecanico'),
-	('900156', '24x48_T3_08-08', 'BJU-03', 'coordinador')
+INSERT INTO `adscripciones_po` (`id`, `turno`, `horario`, `juzgado`, `actividad`) VALUES
+	('10068663', 'T3', '24x48_08-08', 'BJU-03', 'perito'),
+	('10244100', 'T3', '24x48_08-08', 'BJU-03', 'coordinador'),
+	('10244199', 'T3', '24x48_08-08', 'BJU-03', 'coordinador'),
+	('1034123555', 'T3', '24x48_08-08', 'BJU-03', 'juzgador'),
+	('1034855555', 'T3', '24x48_08-08', 'BJU-03', 'juzgador'),
+	('1035862855', 'T3', '24x48_08-08', 'BJU-03', 'juzgador'),
+	('10478554', 'T3', '24x48_08-08', 'BJU-03', 'perito'),
+	('10778692', 'T3', '24x48_08-08', 'BJU-03', 'perito'),
+	('10968682', 'T3', '24x48_08-08', 'BJU-03', 'valuador'),
+	('11668641', 'T3', '24x48_08-08', 'BJU-03', 'mecanico'),
+	('11768692', 'T3', '24x48_08-08', 'BJU-03', 'valuador'),
+	('11868663', 'T3', '24x48_08-08', 'BJU-03', 'perito'),
+	('11968636', 'T3', '24x48_08-08', 'BJU-03', 'perito'),
+	('17678641', 'T3', '24x48_08-08', 'BJU-03', 'mecanico'),
+	('900156', 'T3', '24x48_08-08', 'BJU-03', 'coordinador')
     ;
 
 -- tabla personal_en_funciones
-INSERT INTO `personal_en_funciones` (`no_empleado`, `dia_asistencia`, `estado_asistencia`) VALUES
-	('10068663', '2022-02-13', 'A'),
-	('10244100', '2022-02-13', 'A'),
-	('10244199', '2022-02-13', 'A'),
-	('1034123555', '2022-02-13', 'E'),
-	('1034855555', '2022-02-13', 'E'),
-	('1035862855', '2022-02-13', 'E'),
-	('10478554', '2022-02-13', 'A'),
-	('10778692', '2022-02-13', 'A'),
-	('10968682', '2022-02-13', 'A'),
-	('11668641', '2022-02-13', 'A'),
-	('11768692', '2022-02-13', 'A'),
-	('11868663', '2022-02-13', 'A'),
-	('11968636', '2022-02-13', 'A'),
-	('17678641', '2022-02-13', 'A'),
-	('900156', '2022-02-13', 'A')
+INSERT INTO `personal_en_funciones` (`no_empleado`, `dia_asistencia`, `estado_asistencia`,`adscripcion_compuesta`) VALUES
+	('10068663', '2022-02-13', 'A','BJU-03_T3'),
+	('10244100', '2022-02-13', 'A','BJU-03_T3'),
+	('10244199', '2022-02-13', 'A','BJU-03_T3'),
+	('1034123555', '2022-02-13', 'E','BJU-03_T3'),
+	('1034855555', '2022-02-13', 'E','BJU-03_T3'),
+	('1035862855', '2022-02-13', 'E','BJU-03_T3'),
+	('10478554', '2022-02-13', 'A','BJU-03_T3'),
+	('10778692', '2022-02-13', 'A','BJU-03_T3'),
+	('10968682', '2022-02-13', 'A','BJU-03_T3'),
+	('11668641', '2022-02-13', 'A','BJU-03_T3'),
+	('11768692', '2022-02-13', 'A','BJU-03_T3'),
+	('11868663', '2022-02-13', 'A','BJU-03_T3'),
+	('11968636', '2022-02-13', 'A','BJU-03_T3'),
+	('17678641', '2022-02-13', 'A','BJU-03_T3'),
+	('900156', '2022-02-13', 'A','BJU-03_T3')
     ;
 
 -- Tabla procedimiento
-INSERT INTO `procedimiento` (`pyear`, `id`, `id_juzgado`, `procedimiento`, `expediente`) VALUES
+INSERT INTO `procedimiento` (`pyear`, `id`, `juzgado_id`, `procedimiento`, `expediente`) VALUES
 	('2022', 1, 8, 'Daño', 'AZC-04/DSS/T1/B-220843/01/01/2022'),
 	('2022', 2, 71, 'Daño', 'VC5/DSS/T1/B334056-B334057/01-01-2022/067'),
 	('2022', 3, 47, 'Daño', 'IZP6/DSS/T1/B32116-B32116/01/01/2022-043'),
@@ -72,7 +72,7 @@ INSERT INTO `procedimiento` (`pyear`, `id`, `id_juzgado`, `procedimiento`, `expe
 	;
 
 -- tabla intervencion	(NO puede existir intervencion sin procedimiento)
-INSERT INTO `intervencion` (`folioDictamen`, `id_procedimiento`, `estado`, `especialidad`, `solicitud`, `intervencion`, `entrega`, `extension`, `id_conclusiones`, `documento`) VALUES
+INSERT INTO `intervencion` (`id`, `procedimiento_id`, `estado`, `especialidad`, `solicitud`, `intervencion`, `entrega`, `extension`, `conclusiones_id`, `documento`) VALUES
 	(1, 1, 'Concluido', 'transito', '2022-02-13 15:01', '2022-02-13 16:01', '2022-02-13 20:01', NULL, 1, 'Dictamen'),
 	(2, 2, 'Concluido', 'transito', '2022-02-13 15:31', '2022-02-13 16:31', '2022-02-13 20:31', NULL, 2, 'Dictamen'),
 	(3, 3, 'Pendiente', 'transito', '2022-02-13 15:41', '2022-02-13 16:41', NULL, NULL, 3, 'Dictamen'),
@@ -88,7 +88,7 @@ INSERT INTO `intervencion` (`folioDictamen`, `id_procedimiento`, `estado`, `espe
 	(13, 3, 'Agendado', 'mecanico', '2022-02-13 15:01', '2022-02-13 16:01', NULL, NULL, NULL, NULL)
 	;
 
-INSERT INTO `intervencion_personas` (`id`, `idfolioDictamen`, `noempleado_persona`, `papel`) VALUES
+INSERT INTO `intervencion_personas` (`id`, `intervencion_id`, `noempleado_persona`, `papel`) VALUES
 	(1, 1, '1034123555', 'J_Solicita'),
 	(2, 1, '900156', 'C_Asigna'),
 	(3, 1, '10068663', 'Titular'),
@@ -119,8 +119,8 @@ INSERT INTO `intervencion_personas` (`id`, `idfolioDictamen`, `noempleado_person
 
 
 -- vehiculos involucrados
-INSERT INTO `involucrado_vehiculo`(`id_procedimiento`, `no_vi`, `id_deposito`, `resguardo_date`, `resguardo_no`, `id_submarcas`, 
-				`id_class_all_involved`, `modelo`, `color`, `placas`, `asegurado`, `id_insurancecompany`, `nombre_conductor`, 
+INSERT INTO `involucrado_vehiculo`(`procedimiento_id`, `no_vi`, `deposito_id`, `resguardo_date`, `resguardo_no`, `submarcas_id`, 
+				`class_all_involved_id`, `modelo`, `color`, `placas`, `asegurado`, `insurancecompany_id`, `nombre_conductor`, 
 				`genero`, `edad`, `lesionado`, `responsable`, `request_val_mecanica`) 
 	VALUES 
 	(1, 1, 9, '2022-02-13 12:38', '123456', 8, 3, 2015, 'Negro', 'ASD1235', 1, 7, 'Filomeno Mata', 'Masculino', 32, 0, 1, 0),
