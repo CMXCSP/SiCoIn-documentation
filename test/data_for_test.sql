@@ -59,16 +59,16 @@ INSERT INTO `personal_en_funciones` (`no_empleado`, `dia_asistencia`, `estado_as
     ;
 
 -- Tabla procedimiento
-INSERT INTO `procedimiento` (`pyear`, `id`, `juzgado_id`, `procedimiento`, `expediente`) VALUES
-	('2022', 1, 8, 'Daño', 'AZC-04/DSS/T1/B-220843/01/01/2022'),
-	('2022', 2, 71, 'Daño', 'VC5/DSS/T1/B334056-B334057/01-01-2022/067'),
-	('2022', 3, 47, 'Daño', 'IZP6/DSS/T1/B32116-B32116/01/01/2022-043'),
-	('2022', 4, 1, 'Daño', 'AO-1/DSS/T2/B332638/01/01/2022/001'),
-	('2022', 5, 25, 'Carpeta', 'CUH-5/DSS/T3/CI-SICUH/CUH-2/UI-1C/D/02411/09-2022/090'),
-	('2022', 6, 16, 'Patrimonial', 'COY-3/BSS/T3/C436274/10-02-2022'),
-	('2022', 7, 12, 'Patrimonial', 'BJU4/BSS/T1/288/29/07/2022/012'),
-	('2022', 8, 33, 'Valuación', 'GAM-3/BSS/TM/graffiti/1872022/76'),
-	('2022', 9, 53, 'Daño', 'MIH-1/SS/TM/123/2022/76')	/* procedimiento sin intervenciones */
+INSERT INTO `procedimiento` (`pyear`, `id`, `juzgado_id`, `procedimiento`, `expediente`, `hecho`, `presentacion`) VALUES
+	('2022', 1, 8, 'Daño', 'AZC-04/DSS/T1/B-220843/01/01/2022','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 2, 71, 'Daño', 'VC5/DSS/T1/B334056-B334057/01-01-2022/067','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 3, 47, 'Daño', 'IZP6/DSS/T1/B32116-B32116/01/01/2022-043','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 4, 1, 'Daño', 'AO-1/DSS/T2/B332638/01/01/2022/001','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 5, 25, 'Carpeta', 'CUH-5/DSS/T3/CI-SICUH/CUH-2/UI-1C/D/02411/09-2022/090','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 6, 16, 'Patrimonial', 'COY-3/BSS/T3/C436274/10-02-2022','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 7, 12, 'Patrimonial', 'BJU4/BSS/T1/288/29/07/2022/012','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 8, 33, 'Valuación', 'GAM-3/BSS/TM/graffiti/1872022/76','2022-02-12 15:01','2022-02-13 05:31'),
+	('2022', 9, 53, 'Daño', 'MIH-1/SS/TM/123/2022/76','2022-02-12 15:01','2022-02-13 05:31')	/* procedimiento sin intervenciones */
 	;
 
 -- tabla intervencion	(NO puede existir intervencion sin procedimiento)
@@ -106,7 +106,6 @@ INSERT INTO `intervencion_personas` (`id`, `intervencion_id`, `noempleado_person
     (12, 5, '1034855555', 'J_Solicita'),
 	(13, 5, '10244100', 'C_Asigna'),
 	(14, 5, '11868663', 'Titular'),
-
     (15, 6, '11768692', 'Titular'),
     (16, 7, '11968636', 'Titular'),
     (17, 8, '10778692', 'Titular'),
