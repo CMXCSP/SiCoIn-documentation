@@ -3,21 +3,21 @@ SET FOREIGN_KEY_CHECKS=0;
 
 -- Tabla personal_operativo
 INSERT INTO `personal_operativo` (`id`, `nombres`, `primer_apellido`, `segundo_apellido`, `nombramiento`, `CURP`, `activo`) VALUES
-	('10244100', 'Alberto', 'B', NULL, 'PTT', 'ALBE2000HMX', 1),
-	('10244199', 'Alexandro', 'Al', NULL, 'PTT', 'ALEX200000HMX', 1),
-    ('900156', 'Pitagoras', 'de Grecia', NULL, 'PTT', 'PETE150601HEU', 0),
+	('10244100', 'Alberto', 'B', NULL, 'PERITO EN TRANSITO TERRESTRE', 'ALBE2000HMX', 1),
+	('10244199', 'Alexandro', 'Al', NULL, 'PERITO EN TRANSITO TERRESTRE', 'ALEX200000HMX', 1),
+    ('900156', 'Pitagoras', 'de Grecia', NULL, 'PERITO EN TRANSITO TERRESTRE', 'PETE150601HEU', 0),
 	('1034123', 'Christina', 'S', NULL, 'JC', 'CRIS20050830MMX', 1),
 	('10348555', 'Ana', 'H', NULL, 'JC', 'ANAS2000MMX', 1),
 	('10358628', 'Roberta', 'M', NULL, 'JC', 'ROBE200510MMX', 1),
-    ('10478554', 'Laura', 'R', NULL, 'PTT', 'LARA2000MMX', 1),
-	('11968636', 'Marvin', 'P', NULL, 'PTT', 'MAVY202310UMX', 1),
-    ('11868663', 'Miguel', 'P', NULL, 'PTT', 'MIKE202310HMX', 1),
-	('10068663', 'Miguel', 'P', NULL, 'PTT', 'MICE200310HMX', 1),
-	('10778692', 'Yoss', 'P', NULL, 'PTT', 'YOSS202310HMX', 1),
-    ('11768692', 'Josep', 'P', NULL, 'PTT', 'JOSE202310HMX', 1),
-	('10968682', 'Jose', 'P', NULL, 'PTT', 'JOSH202310HMX', 1),
-    ('17678641', 'Fernanda', 'P', NULL, 'PTT', 'FERN202210MMX', 1),
-	('11668641', 'Marco', 'V', NULL, 'PTT', 'MARC202310HMX', 1)
+    ('10478554', 'Laura', 'R', NULL, 'PERITO EN TRANSITO TERRESTRE', 'LARA2000MMX', 1),
+	('11968636', 'Marvin', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'MAVY202310UMX', 1),
+    ('11868663', 'Miguel', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'MIKE202310HMX', 1),
+	('10068663', 'Miguel', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'MICE200310HMX', 1),
+	('10778692', 'Yoss', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'YOSS202310HMX', 1),
+    ('11768692', 'Josep', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'JOSE202310HMX', 1),
+	('10968682', 'Jose', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'JOSH202310HMX', 1),
+    ('17678641', 'Fernanda', 'P', NULL, 'PERITO EN TRANSITO TERRESTRE', 'FERN202210MMX', 1),
+	('11668641', 'Marco', 'V', NULL, 'PERITO EN TRANSITO TERRESTRE', 'MARC202310HMX', 1)
 	;
 
 -- tabla adscripciones del personal operativo
