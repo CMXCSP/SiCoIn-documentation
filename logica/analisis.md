@@ -1,49 +1,67 @@
 ## Procedimiento
 
-- Checar en registro de procedimiento 'Patrimonial' y 'Valuación' si el daño por grafiti se puede incluir en patrimonial.
-
-||__Daño__|__Carpeta__|__Patrimonial__|__Valuación__||
+Datos a tomar para el tipo de procedimiento:
+|               |__Daño__|__Carpeta__|__Patrimonial__|__Valuación__||
 |-|-|-|-|-|-|
-|_Generales_|✔️|✔️|✔️|✔️||
-|_Lugar_|✔️|✔️|✔️|✔️||
-|_Obj Bienes_|Puede|Puede|❌|✔️||
-|_Vehículo Inv_|✔️|✔️|✔️|❌||
-|_Involucr SinV_|Puede|Puede|❌|Puede||
-|_Llamados_|✔️|✔️|✔️|✔️||
-|||||||
-|||||||
-|||||||
+|_Generales_    |✔️     |✔️         |✔️             |✔️          ||
+|_Lugar_        |✔️     |✔️         |✔️             |✔️          ||
+|_Obj Bienes_   |Puede  |Puede       |❌             |Solo bienes  ||
+|_Vehículo Inv_ |>=1    |>=1         |1              |Solo mecánico||
+|_Involucr SinV_|Puede  |Puede       |❌             |Solo bienes  ||
+|_Llamados_     |✔️     |✔️         |✔️             |✔️          ||
 |||||||
 
 ✔️ Necesario
 ❌ NO debe 
 
-### Flujo de procedimiento intervenciones PTT
+
+_Daño culposo_, _Carpeta de Investigación_ y _Daño Patrimonial_ son __Procedimientos__ ocasionados por el tránsito de vehículos (en circulación).
+
+En todos los casos de _procedimiento con intervención_ se puede anexar otra intervención por __ampliación de dictamen__.
+
+Las _Carpetas de investigación_ pueden contar con un dictamen concluyente de tránsito emitido por la fiscalía, y solo requerir la valuación de bienes dañados por el hecho de tránsito.
+
+En las solicitudes de valuación de daños existen varias posibilidades al no existir un __Procedimiento__ normado (legalmente).
+- Valuación por grafiti
+- Valuación por caida de rama o arbol al circular el vehiculo (_en discusión_)
+
+
+
+## Flujo de intervenciones PTT para los procedimientos
 ```mermaid
 flowchart LR
 
-subgraph Daño 
+subgraph Daño Culposo
 direction TB
-    dt("`**Tránsito**`") -- "sugiere" --> dm{{"`Mecánico`"}}
-    dt("`**Tránsito**`") -- "sugiere" --> db{{"`Bienes`"}}
+    dt("Tránsito") -- sugiere --> dm("Mecánico")
+    dt("Tránsito") -- sugiere --> db("Bienes")
 end
 
-subgraph Carpeta 
+subgraph Carpeta de Investigación 
 direction TB
-    ct("`**Tránsito**`") -- "sugiere" --> cm{{"`Mecánico`"}}
-    ct("`**Tránsito**`") -- "sugiere" --> cb{{"`Bienes`"}}
+    Carpeta --requiere-->
+    ct("Tránsito") -- sugiere --> cm("Mecánico")
+    ct("Tránsito") -- "sugiere" --> cb("Bienes")
+    Carpeta --requiere--> cob("Bienes")
 end
 
-subgraph Patrimonial 
+subgraph Daño Patrimonial 
 direction TB
-    pt("`**Tránsito**`") -- "sugiere" --> pm{{"`Mecánico`"}}
-    ptb["No deberia existir Tránsito - Bienes pero ha pasado"]
+    Patrimonial --requiere--> pt("Tránsito") -- sugiere --> pm("Mecánico")
+    bc{{"Bache, coladera"}}
+    ptb("Aunque ha pasado NO considerar 
+        Tránsito -> Bienes
+        El juez debe crear nuevo procedimiento conforme a la ley") 
 end
 
-subgraph Valuación 
+subgraph Valuación de Daños
 direction TB
-    vm["NO debe haber mecánico"]
-    vb{{"`Bienes`"}} --> vg["Hay grafitis"]
+    Valuación --requiere--> vb("Bienes") --por--> vg{{"Grafiti"}}
+    vb("Bienes") --considere--> vbm{{"NO existe mecánico"}}
+
+    Valuación --requiere--> vm("Mecánico")
+    vm("Mecánico") --considere--> vnb{{"NO existe bienes"}}
+    vm("Mecánico") --considere--> vcr{{"caída de rama o árbol"}}
 end
 
 ```
