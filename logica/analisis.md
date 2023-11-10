@@ -19,7 +19,7 @@
 ❌ NO debe 
 
 ### Flujo de procedimiento intervenciones PTT
-:::mermaid
+```mermaid
 flowchart LR
 
 subgraph Daño 
@@ -46,7 +46,7 @@ direction TB
     vb{{"`Bienes`"}} --> vg["Hay grafitis"]
 end
 
-:::
+```
 
 
 ## Vehiculos asegurados
