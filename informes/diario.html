@@ -97,6 +97,14 @@ button,input,select{font:inherit;color:inherit}
 .card.collapsed header{margin-bottom:0}
 .card.collapsed .card-body,.card.collapsed .desc,.card.collapsed header .seg,.card.collapsed header > .btn{display:none}
 .lede-actions{display:flex;gap:6px;flex-wrap:wrap}
+/* Aviso de columnas faltantes */
+.warn{border-left:4px solid var(--amber);margin-bottom:16px}
+.warn table td{vertical-align:top}
+.warn .sev{display:inline-block;font-size:12px;padding:1px 7px;border-radius:3px;white-space:nowrap}
+.warn .sev.alta{background:var(--guinda-soft);color:var(--guinda);font-weight:600}
+.warn .sev.media{background:var(--amber-soft)}
+.warn .sev.baja{background:var(--rule-2);color:var(--ink-2)}
+.warn .file{font-size:12.5px;color:var(--ink-3)}
 .rail input[type=search],.rail input[type=number],.rail input[type=date]{width:100%;border:1px solid var(--rule);border-radius:6px;padding:7px 9px;background:var(--paper)}
 .range{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
 .range input{min-width:0}
@@ -111,10 +119,8 @@ button,input,select{font:inherit;color:inherit}
 .main{padding:22px 28px 60px;min-width:0}
 
 /* ---------- Titular ---------- */
-.lede{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:6px}
-.lede h2{flex:1 1 420px;margin:0;font:400 clamp(24px,3.2vw,36px)/1.15 var(--display);max-width:44ch;text-wrap:balance}
-.lede h2 .num{font-weight:600}
-.meta{color:var(--ink-3);font-size:13.5px;margin:0 0 14px}
+.lede{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;margin-bottom:12px}
+.meta{color:var(--ink-3);font-size:13.5px;margin:0;flex:1 1 320px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;min-height:0;margin-bottom:16px}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--guinda-soft);color:var(--ink);border:1px solid transparent;border-radius:999px;padding:3px 6px 3px 11px;font-size:13px;cursor:pointer}
 .chip:hover{border-color:var(--guinda)}
@@ -122,11 +128,24 @@ button,input,select{font:inherit;color:inherit}
 .chip i{font-style:normal;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:13px;color:var(--guinda)}
 
 /* ---------- KPIs ---------- */
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--rule);border-radius:10px;background:var(--surface);margin-bottom:18px}
-.kpi{padding:14px 18px;border-left:1px solid var(--rule-2);min-width:0}
-.kpi:first-child{border-left:0}
+.kpis{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:18px}
+.kpi{padding:14px 16px;min-width:0;box-shadow:1px 0 0 var(--rule-2),0 1px 0 var(--rule-2)}
+.kpis{grid-auto-flow:row dense}
+.kpi.bienes{grid-column:span 2}
+.kpi.bienes .label .num{font-weight:600;color:var(--ink);font-size:15px;margin-left:4px}
+.pie-wrap{display:flex;align-items:center;gap:14px;margin-top:8px}
+.pie-wrap svg{flex:none;width:76px;height:76px;overflow:visible}
+.pie-wrap path,.pie-wrap circle{stroke:var(--surface);stroke-width:1.5}
+.pie-leg{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:12.5px;min-width:0;flex:1;max-width:300px}
+.pie-leg li{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:6px;align-items:center}
+.pie-leg i{width:10px;height:10px;border-radius:2px}
+.pie-leg span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-2)}
+.pie-leg b{font:600 13px/1.2 var(--display);font-variant-numeric:tabular-nums}
+.pie-leg em{font-style:normal;color:var(--ink-3);font-weight:400;font-size:11.5px;margin-left:4px}
+.bsum{font-size:13.5px;color:var(--ink-2);margin:0 0 10px}
+.bsum b{color:var(--ink);font-weight:600}
 .kpi .label{font-size:13px;color:var(--ink-2)}
-.kpi .value{font:600 30px/1.1 var(--display);font-variant-numeric:tabular-nums;margin:4px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .value{font:600 28px/1.1 var(--display);font-variant-numeric:tabular-nums;margin:4px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kpi .foot{font-size:12.5px;color:var(--ink-3)}
 .split{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--rule-2);margin:2px 0 6px}
 .split span{display:block;height:100%}
@@ -208,9 +227,9 @@ th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
 .railtoggle{display:none}
 @media (max-width:1100px){
   .s4,.s5,.s6,.s7,.s8{grid-column:span 12}
-  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .kpi:nth-child(3){border-left:0}
-  .kpi:nth-child(n+3){border-top:1px solid var(--rule-2)}
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .kpi.colonias{grid-column:span 2}
+  .kpi.bienes{grid-column:span 3}
 }
 @media (max-width:820px){
   .app.on{display:block}
@@ -225,9 +244,12 @@ th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
   .top{padding:12px 14px;flex-wrap:wrap}
   .top .sub{display:none}
   .people{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi.bienes{grid-column:span 2}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{
+  .warn{display:none!important}
   .card.collapsed,.lede-actions{display:none!important}
   .rail,.top .btn,.chips .chip i,.toolbar,.pager,.railtoggle,#copyBtn,.seg{display:none!important}
   body{background:#fff}
@@ -315,15 +337,25 @@ th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
 
   <main class="main" id="main">
     <div class="lede">
-      <h2 id="headline"></h2>
+      <p class="meta" id="meta"></p>
       <div class="lede-actions">
         <button class="btn ghost" id="collapseAll">Contraer todo</button>
         <button class="btn ghost" id="expandAll">Expandir todo</button>
         <button class="btn" id="printBtn">Imprimir</button>
       </div>
     </div>
-    <p class="meta" id="meta"></p>
     <div class="chips" id="chips" aria-live="polite"></div>
+
+    <section class="card warn" aria-labelledby="h-warn" id="warnCard" hidden>
+      <header>
+        <div>
+          <h3 id="h-warn">Faltan datos en el archivo <span id="warnCount"></span></h3>
+          <p class="desc">El tablero cargó lo que encontró, pero estas hojas o columnas no están. Las partes indicadas se muestran en cero o como «Sin dato».</p>
+        </div>
+        <button class="btn small" id="warnHide">Ocultar aviso</button>
+      </header>
+      <div class="tbl-wrap" id="warnTable" style="max-height:300px"></div>
+    </section>
 
     <div class="kpis" id="kpis"></div>
 
@@ -375,24 +407,24 @@ th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
         <div class="vchart" id="cDay"></div>
       </section>
 
-      <section class="card s7" aria-labelledby="h-bn">
-        <header><div>
-          <h3 id="h-bn">Bienes valuados</h3>
-          <p class="desc" id="dBn"></p>
-        </div></header>
-        <div id="cOwner" style="margin-bottom:14px"></div>
-        <div class="hbars" id="cObj"></div>
-      </section>
-
-      <section class="card s5" aria-labelledby="h-bt">
+      <section class="card s6" aria-labelledby="h-bt">
         <header><div>
           <h3 id="h-bt">Detalle de bienes</h3>
-          <p class="desc">Montos por juzgado y objeto.</p>
+          <p class="desc" id="dBn"></p>
         </div></header>
+        <p class="bsum" id="bSum"></p>
         <div class="tbl-wrap" id="tBienes"></div>
       </section>
 
-      <section class="card s7" aria-labelledby="h-col">
+      <section class="card s6" aria-labelledby="h-jz">
+        <header><div>
+          <h3 id="h-jz">Juzgados con más intervenciones</h3>
+          <p class="desc">Los 12 con mayor carga en la selección actual.</p>
+        </div></header>
+        <div class="hbars" id="cJz"></div>
+      </section>
+
+      <section class="card s12" aria-labelledby="h-col">
         <header>
           <div>
             <h3 id="h-col">Colonias con más intervenciones</h3>
@@ -404,14 +436,6 @@ th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
           </div>
         </header>
         <div class="tbl-wrap" id="tCol"></div>
-      </section>
-
-      <section class="card s5" aria-labelledby="h-jz">
-        <header><div>
-          <h3 id="h-jz">Juzgados con más intervenciones</h3>
-          <p class="desc">Los 12 con mayor carga en la selección actual.</p>
-        </div></header>
-        <div class="hbars" id="cJz"></div>
       </section>
 
       <section class="card s12" aria-labelledby="h-det">
@@ -505,7 +529,10 @@ const SHEET_KEYS = {
 function rowsOf(ws){
   const raw = XLSX.utils.sheet_to_json(ws,{header:1,defval:null,raw:true});
   // localiza la fila de encabezados (la primera con 2+ textos)
-  let h = raw.findIndex(r => r && r.filter(v => typeof v === "string" && v.trim()).length >= 2);
+  // encabezado: entre las primeras 10 filas, la que tenga más textos (la primera en caso de empate)
+  const txt = r => r ? r.filter(v => typeof v === "string" && v.trim()).length : 0;
+  let h = -1, best = 0;
+  raw.slice(0,10).forEach((r,k)=>{ const n = txt(r); if (n > best){ best = n; h = k; } });
   if (h < 0) return {cols:[],rows:[]};
   const cols = raw[h].map(norm);
   const rows = raw.slice(h+1).filter(r => r && r.some(v => v !== null && v !== "")).map(r => {
@@ -532,7 +559,73 @@ function classify(wb){
 }
 
 const DB = {proc:new Map(), interv:new Map(), veh:[], bienes:[], reg:[], files:[]};
-function resetDB(){ DB.proc=new Map(); DB.interv=new Map(); DB.veh=[]; DB.bienes=[]; DB.reg=[]; DB.files=[]; }
+let warnHidden = false;
+function resetDB(){ DB.proc=new Map(); DB.interv=new Map(); DB.veh=[]; DB.bienes=[]; DB.reg=[]; DB.files=[]; warnHidden=false; }
+
+/* Qué pasa si falta cada hoja o columna. Impacto: alta, media, baja */
+const EXPECT = {
+  interv:{sheet:"Intervenciones", cols:{
+    intervencionid:["Intervención ID","alta","No se pudieron cargar las intervenciones de este archivo."],
+    procedimientoid:["Procedimiento ID","alta","No se pueden contar procedimientos ni ligar personas y bienes a las intervenciones."],
+    especialidad:["Especialidad","alta","No se separan Daño, Bache, Mecánico y Bienes; aparecen como «Sin especialidad»."],
+    folio:["Folio","media","No funcionan el filtro de folio ni las fechas por día."],
+    tipoproc:["Tipo Proc","media","El tipo de hecho de tránsito aparece como «Sin tipo»."],
+    juzgado:["Juzgado","media","La alcaldía se toma de la columna Alcaldía y la gráfica de juzgados queda vacía."],
+    lugarcolonia:["Lugar Colonia","media","La tabla de colonias queda vacía."],
+    lugaralcaldia:["Lugar Alcaldía","baja","No se detectan hechos ocurridos en otra alcaldía."]}},
+  veh:{sheet:"Vehículos", missing:["alta","Personas atendidas queda en 0."], cols:{
+    genero:["Género","media","Las personas se cuentan con género «Sin dato»."]}},
+  bienes:{sheet:"Bienes", missing:["media","Bienes valuados queda en $0."], cols:{
+    monto:["Monto","alta","Los montos de bienes quedan en $0."],
+    propietario:["Propietario","media","La gráfica por propietario muestra todo como «Sin dato»."],
+    descripcion:["Descripción","baja","El detalle de bienes muestra «Sin descripción»."],
+    juzgado:["Juzgado","baja","El detalle de bienes no muestra el juzgado."],
+    cantidad:["Cantidad","baja","Se asume una pieza por bien."]}},
+  proc:{sheet:"Procedimientos", missing:["baja","No se conoce el año de cada procedimiento; si el Registro abarca varios años, algunas fechas podrían cruzarse."], cols:{
+    ano:["Año","baja","No se conoce el año de cada procedimiento; si el Registro abarca varios años, algunas fechas podrían cruzarse."]}}
+};
+function buildIssues(){
+  const out = [], add = (file, sheet, what, sev, effect) => out.push({file, sheet, what, sev, effect});
+  const hasReg = DB.reg.length > 0;
+  for (const f of DB.files){
+    if (!f.t.interv) continue; // archivos solo con Registro no se revisan
+    for (const [k,def] of Object.entries(EXPECT)){
+      if (k==="proc" && !hasReg) continue; // el año solo importa para asignar fechas
+      const t = f.t[k];
+      if (!t){ if (def.missing) add(f.name, def.sheet, "Hoja completa", ...def.missing); continue; }
+      const cols = new Set(t.cols);
+      for (const [c,[label,sev,effect]] of Object.entries(def.cols)){
+        if (cols.has(c)) continue;
+        if (k==="interv" && c==="juzgado" && !cols.has("alcaldia"))
+          add(f.name, def.sheet, "Juzgado y Alcaldía", "alta", "No se puede ubicar la alcaldía; la incidencia por alcaldía y la gráfica de juzgados quedan vacías.");
+        else add(f.name, def.sheet, label, sev, effect);
+      }
+    }
+    const sk = f.skipped;
+    if (sk.interv) add(f.name,"Intervenciones",`${sk.interv} ${sk.interv===1?"fila omitida":"filas omitidas"}`,"media","Tienen el Intervención ID vacío o con letras.");
+    if (sk.veh) add(f.name,"Vehículos",`${sk.veh} ${sk.veh===1?"fila omitida":"filas omitidas"}`,"media","Tienen el Procedimiento ID vacío o con letras.");
+    if (sk.bienes) add(f.name,"Bienes",`${sk.bienes} ${sk.bienes===1?"fila omitida":"filas omitidas"}`,"media","Tienen el Procedimiento ID vacío o con letras.");
+  }
+  // Registros que no se pueden ligar a ninguna intervención
+  const pids = new Set([...DB.interv.values()].map(i=>i.pid));
+  const ov = DB.veh.filter(v=>!pids.has(v.pid)).length, ob = DB.bienes.filter(b=>!pids.has(b.pid));
+  const src = DB.files.length > 1 ? "Varios archivos" : (DB.files[0]||{}).name;
+  if (ov) add(src,"Vehículos",`${ov} personas sin intervención`,"media","Su Procedimiento ID no aparece en Intervenciones, así que no se cuentan.");
+  if (ob.length) add(src,"Bienes",`${ob.length} bienes sin intervención`,"media",`Su Procedimiento ID no aparece en Intervenciones; ${fmtM(ob.reduce((s,b)=>s+b.monto,0))} no se cuentan.`);
+  const order = {alta:0,media:1,baja:2};
+  return out.sort((a,b)=>order[a.sev]-order[b.sev]);
+}
+function renderWarn(){
+  const issues = buildIssues(), card = $("#warnCard");
+  card.hidden = warnHidden || !issues.length;
+  if (!issues.length) return;
+  const multi = DB.files.length > 1;
+  const SEV = {alta:"Importante", media:"Afecta un dato", baja:"Menor"};
+  $("#warnCount").textContent = `(${issues.length})`;
+  $("#warnTable").innerHTML = `<table><thead><tr><th>Impacto</th><th>Hoja</th><th>Falta</th><th>Qué se afecta</th></tr></thead><tbody>
+    ${issues.map(i=>`<tr><td><span class="sev ${i.sev}">${SEV[i.sev]}</span></td><td>${esc(i.sheet)}${multi?`<div class="file">${esc(i.file)}</div>`:""}</td><td>${esc(i.what)}</td><td>${esc(i.effect)}</td></tr>`).join("")}
+  </tbody></table>`;
+}
 
 function ingest(wb, fname){
   const t = classify(wb);
@@ -545,8 +638,9 @@ function ingest(wb, fname){
     DB.proc.set(id,{id, anio:toNum(r.ano)||null, tipo:clean(r.procedimiento), danio:clean(r.tipodedanopatrimonial),
       juzgado:jz, code:jz.split("-")[0].toUpperCase(), alcaldia:clean(r.alcaldia)});
   }
+  const skipped = {interv:0, veh:0, bienes:0};
   if (t.interv) for (const r of t.interv.rows){
-    const iid = toNum(r.intervencionid); if (!iid) continue;
+    const iid = toNum(r.intervencionid); if (!iid){ if (t.interv.cols.includes("intervencionid")) skipped.interv++; continue; }
     const jz = clean(r.juzgado); const code = jz.split("-")[0].toUpperCase() || NAME_TO_CODE[norm(r.alcaldia)] || "";
     const esp = espShort(r.especialidad), tipo = tipoShort(r.tipoproc);
     const lugarA = clean(r.lugaralcaldia);
@@ -560,11 +654,11 @@ function ingest(wb, fname){
   // Vehículos y bienes no tienen llave única: se ignoran los procedimientos que ya venían de otro archivo
   const seenV = new Set(DB.veh.map(v=>v.pid)), seenB = new Set(DB.bienes.map(b=>b.pid));
   if (t.veh) for (const r of t.veh.rows){
-    const pid = toNum(r.procedimientoid); if (!pid || seenV.has(pid)) continue;
+    const pid = toNum(r.procedimientoid); if (!pid){ skipped.veh++; continue; } if (seenV.has(pid)) continue;
     DB.veh.push({pid, genero: sentence(r.genero) || "Sin dato"});
   }
   if (t.bienes) for (const r of t.bienes.rows){
-    const pid = toNum(r.procedimientoid); if (!pid || seenB.has(pid)) continue;
+    const pid = toNum(r.procedimientoid); if (!pid){ skipped.bienes++; continue; } if (seenB.has(pid)) continue;
     DB.bienes.push({pid, cant:toNum(r.cantidad)||1, prop:clean(r.propietario)||"Sin dato",
       desc:clean(r.descripcion)||"Sin descripción", monto:toNum(r.monto), juzgado:clean(r.juzgado)});
   }
@@ -573,7 +667,7 @@ function ingest(wb, fname){
     const a = toNum(r.folioinicial), b = toNum(r.foliofinal);
     if (f && a && b) DB.reg.push({fecha:new Date(Date.UTC(f.getUTCFullYear(),f.getUTCMonth(),f.getUTCDate())), a, b});
   }
-  DB.files.push({name:fname, sheets:found});
+  DB.files.push({name:fname, sheets:found, t:Object.fromEntries(Object.entries(t).map(([k,v])=>[k,{cols:v.cols}])), skipped});
 }
 function linkDates(){
   for (const i of DB.interv.values()){
@@ -701,7 +795,6 @@ function render(){
   const all = [...DB.interv.values()];
 
   // Titular
-  $("#headline").innerHTML = `<span class="num">${fmtN(cur.length)}</span> intervenciones periciales en <span class="num">${fmtN(pids.size)}</span> procedimientos de daño culposo por tránsito`;
   const folios = all.map(i=>i.folio).filter(Boolean);
   const years = [...new Set([...DB.proc.values()].map(p=>p.anio).filter(Boolean))].sort();
   const fechas = all.map(i=>i.fecha).filter(Boolean).sort((a,b)=>a-b);
@@ -718,19 +811,24 @@ function render(){
   const gen = countBy(veh, v=>v.genero);
   const fem = gen.get("Femenino")||0, mas = gen.get("Masculino")||0, otros = veh.length-fem-mas;
   const totBien = bienes.reduce((s,b)=>s+b.monto,0);
-  const gob = bienes.filter(b=>norm(b.prop)==="gobierno").reduce((s,b)=>s+b.monto,0);
   const alcN = new Set(cur.map(i=>i.code).filter(c=>ALC_NAME[c])).size;
-  const colN = new Set(cur.map(i=>i.colonia+"|"+i.lugarA).filter(s=>s!=="|")).size;
+  const colN = new Set(cur.filter(i=>i.colonia).map(i=>i.colonia+"|"+i.lugarA)).size;
+  const conCol = cur.filter(i=>i.colonia).length;
+  const perP = countBy(cur, i=>i.pid);
+  const multiI = [...perP.values()].filter(n=>n>1).length;
   $("#kpis").innerHTML = `
+    <div class="kpi"><div class="label">Procedimientos</div><div class="value">${fmtN(pids.size)}</div>
+      <div class="foot">${fmtN(multiI)} con más de una intervención</div></div>
+    <div class="kpi"><div class="label">Intervenciones periciales</div><div class="value">${fmtN(cur.length)}</div>
+      <div class="foot">${pids.size ? (cur.length/pids.size).toFixed(2) : "0"} por procedimiento en promedio</div></div>
     <div class="kpi"><div class="label">Personas atendidas</div><div class="value">${fmtN(veh.length)}</div>
       <div class="split" aria-hidden="true"><span style="width:${pct(mas,veh.length)}%;background:var(--slate)"></span><span style="width:${pct(fem,veh.length)}%;background:var(--amber)"></span></div>
       <div class="foot">${fmtN(mas)} masculinos y ${fmtN(fem)} femeninas${otros?`, ${otros} sin dato`:""}</div></div>
-    <div class="kpi"><div class="label">Bienes valuados</div><div class="value" title="${fmtM(totBien)}">${fmtM0(totBien)}</div>
-      <div class="foot">${fmtN(bienes.length)} objetos. ${fmtM0(gob)} de infraestructura del gobierno</div></div>
+    <div class="kpi bienes"><div class="label">Bienes valuados <span class="num">${fmtM0(totBien)}</span></div>${ownerPie(bienes, totBien)}</div>
     <div class="kpi"><div class="label">Alcaldías con incidencia</div><div class="value">${alcN} <span style="font-size:18px;color:var(--ink-3);font-weight:400">de 16</span></div>
       <div class="foot">${fmtN(new Set(cur.map(i=>i.juzgado)).size)} juzgados involucrados</div></div>
-    <div class="kpi"><div class="label">Colonias distintas</div><div class="value">${fmtN(colN)}</div>
-      <div class="foot">${fmtN(cur.length ? pct(cur.length - colN, cur.length) : 0)}% de las intervenciones repiten colonia</div></div>`;
+    <div class="kpi colonias"><div class="label">Colonias distintas</div><div class="value">${fmtN(colN)}</div>
+      <div class="foot">${conCol ? `${pct(conCol - colN, conCol)}% de las intervenciones repiten colonia` : "Sin datos de colonia"}</div></div>`;
 
   // Alcaldías (ignora su propio filtro para poder ver el contexto)
   const cA = countBy(sel("alc"), i=>i.code);
@@ -825,17 +923,33 @@ function renderMatrix(cur){
   $("#cMatrix").innerHTML = h;
 }
 
+const OWN_COLS = ["var(--guinda)","var(--slate)","var(--teal)","var(--amber)","var(--ink-3)"];
+function ownersOf(bienes){
+  const own = new Map(); bienes.forEach(b=>own.set(b.prop,(own.get(b.prop)||0)+b.monto));
+  return [...own].sort((a,b)=>b[1]-a[1]);
+}
+function ownerPie(bienes, tot){
+  if (!bienes.length || !tot) return `<div class="foot" style="margin-top:8px">${bienes.length ? `${bienes.length} objetos sin monto registrado` : "Sin bienes valuados en la selección"}</div>`;
+  const own = ownersOf(bienes), R = 38, C = 38;
+  let a0 = -Math.PI/2, paths = "";
+  own.forEach(([k,v],i)=>{
+    const col = OWN_COLS[i%OWN_COLS.length], frac = v/tot, t = `${esc(k)}: ${fmtM(v)} (${pct(v,tot)}%)`;
+    if (frac >= 0.9999){ paths += `<circle cx="${C}" cy="${C}" r="${R}" fill="${col}"><title>${t}</title></circle>`; return; }
+    if (frac <= 0) return;
+    const a1 = a0 + frac*2*Math.PI, large = frac > .5 ? 1 : 0;
+    const x0 = C+R*Math.cos(a0), y0 = C+R*Math.sin(a0), x1 = C+R*Math.cos(a1), y1 = C+R*Math.sin(a1);
+    paths += `<path d="M${C},${C} L${x0.toFixed(2)},${y0.toFixed(2)} A${R},${R} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${col}"><title>${t}</title></path>`;
+    a0 = a1;
+  });
+  const label = own.map(([k,v])=>`${k} ${fmtM0(v)}`).join(", ");
+  return `<div class="pie-wrap"><svg viewBox="0 0 76 76" role="img" aria-label="Monto valuado por propietario: ${esc(label)}">${paths}</svg>
+    <ul class="pie-leg">${own.map(([k,v],i)=>`<li><i style="background:${OWN_COLS[i%OWN_COLS.length]}"></i><span title="${esc(k)}">${esc(k)}</span><b>${fmtM0(v)}<em>${pct(v,tot)}%</em></b></li>`).join("")}</ul></div>`;
+}
 function renderBienes(bienes, tot){
   $("#dBn").textContent = bienes.length ? `${fmtM(tot)} en ${bienes.length} objetos de ${new Set(bienes.map(b=>b.pid)).size} procedimientos.` : "Sin bienes valuados en la selección.";
-  const own = new Map(); bienes.forEach(b=>own.set(b.prop,(own.get(b.prop)||0)+b.monto));
-  const oCols = ["var(--guinda)","var(--slate)","var(--teal)","var(--amber)","var(--ink-3)"];
-  const ownArr = [...own].sort((a,b)=>b[1]-a[1]);
-  $("#cOwner").innerHTML = bienes.length ? `
-    <div class="split" style="height:12px" role="img" aria-label="Monto por propietario">${ownArr.map(([k,v],i)=>`<span title="${esc(k)}: ${fmtM(v)}" style="width:${tot?v/tot*100:0}%;background:${oCols[i%oCols.length]}"></span>`).join("")}</div>
-    <div class="legend">${ownArr.map(([k,v],i)=>`<span style="--c:${oCols[i%oCols.length]}">${esc(k)} ${fmtM0(v)} (${pct(v,tot)}%)</span>`).join("")}</div>` : "";
-  const g = new Map();
-  for (const b of bienes){ const k = norm(b.desc); const o = g.get(k)||{label:sentence(b.desc),value:0,n:0}; o.value+=b.monto; o.n+=b.cant; g.set(k,o); }
-  hbars($("#cObj"), [...g.values()].sort((a,b)=>b.value-a.value).slice(0,10).map(o=>({...o,note:`${o.n}`,title:`${o.label}: ${o.n} pieza(s)`})), {money:true});
+  const own = ownersOf(bienes);
+  $("#bSum").innerHTML = bienes.length ? own.map(([k,v])=>`${esc(k)} <b>${fmtM0(v)}</b> (${pct(v,tot)}%)`).join(", ")+"." : "";
+  $("#bSum").hidden = !bienes.length;
   const rows = [...bienes].sort((a,b)=>b.monto-a.monto);
   $("#tBienes").innerHTML = rows.length ? `<table><thead><tr><th>Juzgado</th><th>Objeto</th><th>Propietario</th><th class="r">Monto</th></tr></thead><tbody>
     ${rows.map(b=>`<tr><td>${esc(b.juzgado)}</td><td>${esc(sentence(b.desc))}${b.cant>1?` <span class="tag">×${b.cant}</span>`:""}</td><td>${esc(b.prop)}</td><td class="r num">${fmtM(b.monto)}</td></tr>`).join("")}
@@ -1015,8 +1129,10 @@ function start(){
   ["#addBtn","#newBtn","#railToggle"].forEach(s=>$(s).hidden=false);
   const hasDates = [...DB.interv.values()].some(i=>i.fecha);
   $("#dateBox").hidden = !hasDates;
+  renderWarn();
   render();
 }
+$("#warnHide").addEventListener("click",()=>{ warnHidden = true; $("#warnCard").hidden = true; });
 const fi = $("#fileInput"); let appendMode = false;
 fi.addEventListener("change",()=>{ if (fi.files.length) readFiles([...fi.files], appendMode); fi.value=""; });
 $("#zone").addEventListener("click",()=>{ appendMode=false; fi.click(); });
