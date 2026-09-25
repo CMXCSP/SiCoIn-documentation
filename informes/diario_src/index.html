@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Bloquea cualquier conexión de red: los datos del Excel nunca salen de este equipo -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Tablero de hechos de tránsito | Servicios Periciales</title>
+<style>
+/*@@STYLES@@*/
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="mark" aria-hidden="true">SP</div>
+  <div>
+    <h1>Tablero de hechos de tránsito</h1>
+    <div class="sub">Coordinación de Servicios Periciales</div>
+  </div>
+  <div class="spacer"></div>
+  <span class="lock" title="La página bloquea toda conexión de red; el archivo se lee solo en este navegador.">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    Procesado en este equipo
+  </span>
+  <button class="btn ghost railtoggle" id="railToggle" aria-expanded="false" aria-controls="rail" hidden>Filtros</button>
+  <button class="btn" id="addBtn" hidden>Agregar archivo</button>
+  <button class="btn" id="newBtn" hidden>Cargar otro Excel</button>
+  <button class="btn ghost" id="themeBtn" aria-label="Cambiar tema claro u oscuro">◐</button>
+</div>
+
+<input type="file" id="fileInput" accept=".xlsx,.xlsm,.xlsb,.csv" multiple hidden>
+
+<!-- Pantalla inicial -->
+<section class="drop" id="drop">
+  <h2>Analiza la exportación de intervenciones periciales</h2>
+  <p>Arrastra el Excel exportado del sistema (por ejemplo <em>exportacion_tablas_2026_folios_…xlsx</em>). Se lee dentro del navegador y nunca se envía a ningún servidor. Si también sueltas el informe diario con la hoja <em>Registro</em>, el tablero añade las fechas de cada folio.</p>
+  <div class="zone" id="zone" role="button" tabindex="0" aria-describedby="zoneHelp">
+    <strong>Suelta aquí el archivo .xlsx</strong>
+    <span id="zoneHelp">o haz clic para elegirlo. Puedes seleccionar varios archivos a la vez.</span>
+  </div>
+  <div class="err" id="err" role="alert"></div>
+  <div class="sheets" aria-label="Hojas que reconoce el tablero">
+    <div><b>Procedimientos</b>ID y año</div>
+    <div><b>Intervenciones</b>Folio, especialidad, lugar del hecho</div>
+    <div><b>Vehículos</b>Personas atendidas por género</div>
+    <div><b>Bienes</b>Objetos valuados y montos</div>
+    <div><b>Registro</b>Opcional: folios por fecha</div>
+  </div>
+</section>
+
+<!-- Tablero -->
+<div class="app" id="app">
+  <aside class="rail" id="rail" aria-label="Filtros">
+    <button class="rail-open" id="railOpen" aria-label="Mostrar panel de filtros" aria-controls="railInner" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      <span class="vt">Filtros</span>
+      <span class="badge" id="railBadge" hidden></span>
+    </button>
+    <div class="rail-head">
+      <span class="rail-title">Filtros</span>
+      <button class="btn ghost small" id="railCollapse" aria-label="Ocultar panel de filtros" aria-controls="railInner" aria-expanded="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+    </div>
+    <div class="rail-inner" id="railInner">
+      <label class="fsearch" for="q">Buscar</label>
+      <input type="search" id="q" placeholder="Colonia, juzgado, folio…">
+      <details class="fgroup" data-g="cat" open><summary>Tipo de intervención<span class="cnt"></span></summary><div class="checks" data-dim="cat"></div></details>
+      <details class="fgroup" data-g="alc" open><summary>Alcaldía del juzgado<span class="cnt"></span></summary><div class="checks" data-dim="alc"></div></details>
+      <details class="fgroup" data-g="esp" open><summary>Especialidad<span class="cnt"></span></summary><div class="checks" data-dim="esp"></div></details>
+      <details class="fgroup" data-g="fol" open><summary>Folio<span class="cnt"></span></summary>
+        <div class="range">
+          <input type="number" id="folMin" aria-label="Folio desde" placeholder="Desde">
+          <input type="number" id="folMax" aria-label="Folio hasta" placeholder="Hasta">
+        </div>
+      </details>
+      <details class="fgroup" data-g="fecha" id="dateBox" hidden open><summary>Fecha<span class="cnt"></span></summary>
+        <div class="range">
+          <input type="date" id="dMin" aria-label="Fecha desde">
+          <input type="date" id="dMax" aria-label="Fecha hasta">
+        </div>
+      </details>
+      <p style="margin-top:22px"><button class="btn" id="clearBtn" style="width:100%;justify-content:center">Quitar todos los filtros</button></p>
+      <p style="font-size:12.5px;color:var(--ink-3);margin:14px 0 0">Tip: haz clic en cualquier barra para filtrar por ella. Vuelve a hacer clic para quitar el filtro.</p>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="lede">
+      <p class="meta" id="meta"></p>
+      <div class="lede-actions">
+        <button class="btn ghost" id="collapseAll">Contraer todo</button>
+        <button class="btn ghost" id="expandAll">Expandir todo</button>
+        <button class="btn" id="printBtn">Imprimir</button>
+      </div>
+    </div>
+    <div class="chips" id="chips" aria-live="polite"></div>
+    <div id="zonePre"></div>   <!-- tarjetas antes de los indicadores (aviso) -->
+    <div class="kpis" id="kpis"></div>
+    <div class="grid" id="zoneGrid"></div>  <!-- tarjetas definidas en js/cards.js -->
+  </main>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>/*@@SHEETJS@@*/</script>
+<script>
+/*@@SCRIPTS@@*/
+</script>
+</body>
+</html>
