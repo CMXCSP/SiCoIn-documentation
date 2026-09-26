@@ -62,13 +62,13 @@ function ingest(wb, fname){
     if (!iid){ if (t.interv.cols.includes("intervencionid")) skipped.interv++; continue; }
     const juzgado = clean(r.juzgado);
     const code = codeOfJuzgado(juzgado) || NAME_TO_CODE[norm(r.alcaldia)] || "";
-    const esp = espShort(r.especialidad), tipo = tipoShort(r.tipoproc);
+    const esp = espShort(r.especialidad), procT = typeOf(PROC_TYPES, r.tipoproc, "Sin tipo");
     const lugarA = clean(r.lugaralcaldia), colonia = clean(r.lugarcolonia);
     const i = {
       pid: toNum(r.procedimientoid), iid, folio: toNum(r.folio),
-      tipoRaw: clean(r.tipoproc), tipo, espRaw: clean(r.especialidad), esp,
-      cat: esp === "Tránsito" ? tipo : esp,         // tipo de hecho como en el Guion de peritos
-      procT: typeOf(PROC_TYPES, r.tipoproc, "Sin tipo"), intT: typeOf(INTERV_TYPES, r.especialidad, "Sin especialidad"),
+      tipoRaw: clean(r.tipoproc), espRaw: clean(r.especialidad), esp,
+      procT, intT: typeOf(INTERV_TYPES, r.especialidad, "Sin especialidad"),
+      cat: procT.label,
       code, juzgado, alcaldia: clean(r.alcaldia) || ALC_NAME[code] || "",
       lugarA, lugarCode: NAME_TO_CODE[norm(lugarA)] || "", colonia,
       colKey: colonia ? colonia + "|" + lugarA : "",

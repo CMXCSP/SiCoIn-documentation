@@ -8,7 +8,6 @@ const ALCALDIAS = [
   ["IZP","Iztapalapa"],["MAC","La Magdalena Contreras"],["MIH","Miguel Hidalgo"],["MIL","Milpa Alta"],
   ["TLH","Tláhuac"],["TLP","Tlalpan"],["VCA","Venustiano Carranza"],["XOC","Xochimilco"]
 ];
-const CAT_ORDER = ["Daño","Bache","Mecánico","Bienes","Carpeta de investigación"];
 const MONTHS = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
 const OWN_COLS = ["var(--guinda)","var(--slate)","var(--teal)","var(--amber)","var(--ink-3)"];
 const SEV_LABEL = {alta:"Importante", media:"Afecta un dato", baja:"Menor"};
@@ -31,7 +30,7 @@ const SCHEMA = {
       ["procedimientoid","Procedimiento ID","alta","No se pueden contar procedimientos ni ligar personas y bienes a las intervenciones."],
       ["especialidad","Especialidad","alta","No se separan Daño, Bache, Mecánico y Bienes; aparecen como «Sin especialidad»."],
       ["folio","Folio","media","No funcionan el filtro de folio ni las fechas por día."],
-      ["tipoproc","Tipo Proc","media","El tipo de hecho de tránsito aparece como «Sin tipo»."],
+      ["tipoproc","Tipo Proc","media","El tipo de procedimiento aparece como «Sin tipo»."],
       ["juzgado","Juzgado","media","La alcaldía se toma de la columna Alcaldía y la gráfica de juzgados queda vacía."],
       ["alcaldia","Alcaldía"],
       ["lugarcolonia","Lugar Colonia","media","La tabla de colonias queda vacía."],
@@ -76,7 +75,6 @@ const fmtDate = d => d ? `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUT
 const isoDate = d => d ? d.toISOString().slice(0,10) : "";
 const countBy = (arr, fn) => { const m = new Map(); for (const x of arr){ const k = fn(x); m.set(k, (m.get(k)||0) + 1); } return m; };
 const sumBy = (arr, fn) => arr.reduce((s,x) => s + fn(x), 0);
-const catSort = (a,b) => { const ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b); return (ia<0?99:ia) - (ib<0?99:ib) || a.localeCompare(b,"es"); };
 const ALC_NAME = Object.fromEntries(ALCALDIAS);
 const NAME_TO_CODE = Object.fromEntries(ALCALDIAS.map(([c,n]) => [norm(n), c]));
 const codeOfJuzgado = jz => clean(jz).split("-")[0].toUpperCase();
@@ -88,12 +86,6 @@ function espShort(e){
   if (n.includes("mecanic")) return "Mecánico";
   const s = clean(e).replace(/^PTT\s*/i,"").replace(/^val\.?\s*/i,"").trim();
   return s ? s.charAt(0).toUpperCase() + s.slice(1) : "Sin especialidad";
-}
-function tipoShort(t){
-  const n = norm(t);
-  if (n.includes("bache")) return "Bache";
-  if (n.includes("carpeta")) return "Carpeta de investigación";
-  return clean(t) || "Sin tipo";
 }
 
 /* Nombres visibles y color de badge de los tipos de procedimiento e intervención.
@@ -112,6 +104,11 @@ const typeOf = (list, v, empty) => {
   const n = norm(v), hit = list.find(([k]) => n.includes(k));
   return hit ? {label:hit[1], color:hit[2]} : {label:clean(v) || empty, color:"var(--ink-3)"};
 };
+/* Orden en gráficas y filtros; los nombres desconocidos van al final, en orden alfabético. */
+const orderBy = order => (a,b) => { const ia = order.indexOf(a), ib = order.indexOf(b);
+  return (ia<0?99:ia) - (ib<0?99:ib) || a.localeCompare(b,"es"); };
+const procSort = orderBy(["Daño","Bache","Carpeta de Investigación","Remisión Ordinaria","Queja"]);
+const intSort = orderBy(INTERV_TYPES.map(t => t[1]));
 const pill = t => `<span class="pill" style="--c:${t.color}">${esc(t.label)}</span>`;
 
 /* Preferencias en el navegador (qué está contraído). Nunca guarda datos del Excel. */

@@ -4,9 +4,9 @@
 
 /* Filtros por dimensión (se pueden cruzar: cada gráfica ignora su propio filtro) */
 const DIMS = {
-  cat: {label:"Tipo",         of: i => i.cat},
+  cat: {label:"Procedimiento", of: i => i.cat},
   alc: {label:"Alcaldía",     of: i => i.code,    show: v => ALC_NAME[v] || v},
-  esp: {label:"Especialidad", of: i => i.esp},
+  esp: {label:"Intervención",  of: i => i.intT.label},
   jz:  {label:"Juzgado",      of: i => i.juzgado},
   col: {label:"Colonia",      of: i => i.colKey,  show: v => v.split("|")[0]}
 };

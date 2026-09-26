@@ -9,7 +9,7 @@ Archivo: `diario.html`. Es un solo archivo que se abre con doble clic en el nave
 - **Agregar archivo:** combina el nuevo Excel con los datos ya cargados. Sirve, por ejemplo, para sumar la exportación de folios con el informe diario y así obtener las fechas.
 - **Cargar otro Excel:** borra lo cargado y empieza de cero.
 - **Filtros:**
-  - Panel lateral: tipo de intervención, alcaldía, especialidad, folio, fecha y búsqueda libre.
+  - Panel lateral: tipo de procedimiento, alcaldía, tipo de intervención, folio, fecha y búsqueda libre.
   - Clic en cualquier barra, colonia o juzgado para filtrar. Otro clic quita el filtro.
   - Todos los filtros se aplican a todo el tablero.
 - **Tarjetas y panel:** se pueden contraer. El navegador recuerda cuáles quedaron cerradas. Las tarjetas contraídas no se imprimen.
@@ -20,7 +20,7 @@ Archivo: `diario.html`. Es un solo archivo que se abre con doble clic en el nave
 |---|---|
 | Intervenciones | Filas de la hoja Intervenciones. Es la base de todo el tablero. |
 | Procedimientos | Valores distintos de *Procedimiento ID* entre las intervenciones filtradas. |
-| Tipo de hecho | Si la especialidad es *PTT en Tránsito*, se usa el tipo de procedimiento (Daño, Bache, Carpeta). Si no, la especialidad (Mecánico, Bienes). |
+| Tipo de procedimiento | Columna *Tipo Proc* de cada intervención: Daño, Bache, Carpeta de Investigación, Remisión Ordinaria o Queja. |
 | Personas atendidas | Filas de la hoja Vehículos cuyos procedimientos están en la selección. |
 | Bienes valuados | Suma de *Monto* de la hoja Bienes para los procedimientos de la selección, agrupada por propietario. |
 | Alcaldía | Clave del juzgado. Si no hay juzgado, se usa la columna Alcaldía. |
@@ -52,7 +52,7 @@ El tablero carga lo que encuentra y muestra la tarjeta **«Faltan datos en el ar
 | Intervenciones | Especialidad | Importante | Todo aparece como «Sin especialidad». |
 | Intervenciones | Juzgado y Alcaldía | Importante | No se puede ubicar la alcaldía. |
 | Intervenciones | Folio | Afecta un dato | Sin filtro de folio ni fechas. |
-| Intervenciones | Tipo Proc | Afecta un dato | El tipo de hecho de tránsito aparece como «Sin tipo». |
+| Intervenciones | Tipo Proc | Afecta un dato | El tipo de procedimiento aparece como «Sin tipo». |
 | Intervenciones | Juzgado | Afecta un dato | Se usa Alcaldía y la gráfica de juzgados queda vacía. |
 | Intervenciones | Lugar Colonia | Afecta un dato | La tabla de colonias queda vacía. |
 | Intervenciones | Lugar Alcaldía | Menor | No se detectan hechos en otra alcaldía. |

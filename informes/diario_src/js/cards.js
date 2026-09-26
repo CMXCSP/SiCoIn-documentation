@@ -63,30 +63,30 @@ const CARDS = [
       }
     } },
 
-  /* ---------- Tipo de hecho ---------- */
-  { id:"cat", span:4, title:"Incidencia por tipo de hecho",
-    desc:"Tránsito se separa por tipo de procedimiento; las valuaciones por especialidad.",
+  /* ---------- Tipo de procedimiento ---------- */
+  { id:"cat", span:4, title:"Incidencia por tipo de Procedimiento",
+    desc:"Intervenciones según el tipo de procedimiento al que pertenecen.",
     body:`<div class="hbars"></div>`,
     render(ctx, card){
       const counts = countBy(ctx.except.cat, i => i.cat), tot = ctx.except.cat.length;
-      hbars(pick(card,".hbars"), [...counts.keys()].sort(catSort).map(k =>
+      hbars(pick(card,".hbars"), [...counts.keys()].sort(procSort).map(k =>
         ({key:k, label:k, value:counts.get(k), note:pct(counts.get(k), tot) + "%", selected:F.sel.cat.has(k)})),
         {onClick: d => filterAndRefresh("cat", d.key)});
     } },
 
-  /* ---------- Matriz especialidad × tipo de procedimiento ---------- */
-  { id:"mx", span:6, title:"Especialidad por tipo de procedimiento",
+  /* ---------- Matriz tipo de intervención × tipo de procedimiento ---------- */
+  { id:"mx", span:6, title:"Especialidad de intervención por tipo de Procedimiento",
     desc:"Conteo de intervenciones, como la tabla dinámica del informe diario.",
     body:`<div class="scroll"></div>`,
     render(ctx, card){
       const el = pick(card,".scroll"), cur = ctx.cur;
-      const rowKey = i => i.espRaw || i.esp, colKey = i => i.tipoRaw || i.tipo;
-      const rows = [...new Set(cur.map(rowKey))].sort();
-      const cols = [...new Set(cur.map(colKey))].sort((a,b) => catSort(tipoShort(a), tipoShort(b)));
+      const rowKey = i => i.intT.label, colKey = i => i.procT.label;
+      const rows = [...new Set(cur.map(rowKey))].sort(intSort);
+      const cols = [...new Set(cur.map(colKey))].sort(procSort);
       if (!rows.length){ el.innerHTML = EMPTY; return; }
       const m = countBy(cur, i => rowKey(i) + "¦" + colKey(i)), max = Math.max(1, ...m.values());
       const cell = v => `<td class="cell" style="background:${v ? `color-mix(in srgb, var(--amber) ${Math.round((.12 + .7*v/max)*100)}%, transparent)` : "transparent"};color:${v ? "var(--ink)" : "var(--ink-3)"}">${v || "·"}</td>`;
-      el.innerHTML = `<table class="matrix"><thead><tr><th>Especialidad</th>${cols.map(c => `<th class="r" title="${esc(c)}">${esc(tipoShort(c))}</th>`).join("")}<th class="r">Total</th></tr></thead><tbody>
+      el.innerHTML = `<table class="matrix"><thead><tr><th>Tipo de intervención</th>${cols.map(c => `<th class="r">${esc(c)}</th>`).join("")}<th class="r">Total</th></tr></thead><tbody>
         ${rows.map(r => { const vals = cols.map(c => m.get(r + "¦" + c) || 0);
           return `<tr><td>${esc(r)}</td>${vals.map(cell).join("")}<td class="r tot">${sumBy(vals, v => v)}</td></tr>`; }).join("")}
         <tr class="tot"><td>Total</td>${cols.map(c => `<td class="cell">${sumBy(rows, r => m.get(r + "¦" + c) || 0)}</td>`).join("")}<td class="r">${cur.length}</td></tr>
@@ -280,7 +280,7 @@ const CARDS = [
       const gob = owners.find(([k]) => norm(k) === "gobierno")?.[1] || 0;
       const lines = [
         `Procedimientos de daño culposo por tránsito de vehículos: ${pids.size}, con ${cur.length} intervenciones periciales.`,
-        `Por tipo: ${[...cats.keys()].sort(catSort).map(k => `${k} ${cats.get(k)}`).join(", ")}.`,
+        `Por tipo de procedimiento: ${[...cats.keys()].sort(procSort).map(k => `${k} ${cats.get(k)}`).join(", ")}.`,
         `Personas atendidas: ${veh.length} (${mas} masculinos y ${fem} femeninas).`,
         `Bienes valuados: ${fmtM(totBien)}${bienes.length ? `, de los cuales ${fmtM(gob)} corresponden a infraestructura del Gobierno de la Ciudad de México` : ""}.`
       ];

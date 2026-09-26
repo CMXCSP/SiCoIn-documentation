@@ -98,9 +98,9 @@ function renderRail(){
   $$(".fgroup").forEach(d => pick(d, ".cnt").textContent = counts[d.dataset.g] || "");
 
   const options = {
-    cat: () => [...new Set(DB.all.map(i => i.cat))].sort(catSort).map(k => [k, k]),
+    cat: () => [...new Set(DB.all.map(i => i.cat))].sort(procSort).map(k => [k, k]),
     alc: () => ALCALDIAS,
-    esp: () => [...new Set(DB.all.map(i => i.esp))].sort().map(k => [k, k])
+    esp: () => [...new Set(DB.all.map(i => i.intT.label))].sort(intSort).map(k => [k, k])
   };
   for (const box of $$(".checks[data-dim]")){
     const dim = box.dataset.dim, withCode = dim === "alc", sel = F.sel[dim];
