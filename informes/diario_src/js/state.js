@@ -10,6 +10,11 @@ const DIMS = {
   jz:  {label:"Juzgado",      of: i => i.juzgado},
   col: {label:"Colonia",      of: i => i.colKey,  show: v => v.split("|")[0]}
 };
+/* Procedimientos distintos de una lista de intervenciones, contados por su tipo (hoja Procedimientos). */
+function procByType(list){
+  const tipo = new Map(list.map(i => [i.pid || "i" + i.iid, i.cat]));
+  return {counts: countBy([...tipo.values()], t => t), total: tipo.size};
+}
 const F = {
   sel: Object.fromEntries(Object.keys(DIMS).map(d => [d, new Set()])),
   q:"", folMin:null, folMax:null, dMin:null, dMax:null

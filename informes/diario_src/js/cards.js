@@ -65,10 +65,10 @@ const CARDS = [
 
   /* ---------- Tipo de procedimiento ---------- */
   { id:"cat", span:4, title:"Incidencia por tipo de Procedimiento",
-    desc:"Intervenciones según el tipo de procedimiento al que pertenecen.",
+    desc:"Procedimientos según su tipo en la hoja Procedimientos.",
     body:`<div class="hbars"></div>`,
     render(ctx, card){
-      const counts = countBy(ctx.except.cat, i => i.cat), tot = ctx.except.cat.length;
+      const {counts, total: tot} = procByType(ctx.except.cat);
       hbars(pick(card,".hbars"), [...counts.keys()].sort(procSort).map(k =>
         ({key:k, label:k, value:counts.get(k), note:pct(counts.get(k), tot) + "%", selected:F.sel.cat.has(k)})),
         {onClick: d => filterAndRefresh("cat", d.key)});
@@ -274,7 +274,7 @@ const CARDS = [
     },
     render(ctx, card){
       const {cur, pids, veh, mas, fem, bienes, totBien, owners} = ctx;
-      const cats = countBy(cur, i => i.cat);
+      const cats = procByType(cur).counts;
       const topA = [...countBy(cur, i => i.code)].filter(([c]) => ALC_NAME[c]).sort((a,b) => b[1] - a[1]).slice(0,3).map(([c,v]) => `${ALC_NAME[c]} (${v})`);
       const cols = [...countBy(cur.filter(i => i.colonia), i => `${i.colonia}, ${i.lugarA}`)].filter(([,v]) => v > 1).sort((a,b) => b[1] - a[1]).slice(0,3);
       const gob = owners.find(([k]) => norm(k) === "gobierno")?.[1] || 0;

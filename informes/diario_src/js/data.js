@@ -37,7 +37,7 @@ function classify(wb){
 const DB = {};
 function resetDB(){
   Object.assign(DB, {
-    proc:new Map(),    // id → {id, anio}
+    proc:new Map(),    // id → {id, anio, tipo}
     interv:new Map(),  // intervencionId → registro
     veh:[], bienes:[], reg:[], files:[],
     // precalculados en prepare()
@@ -54,7 +54,8 @@ function ingest(wb, fname){
 
   for (const r of t.proc?.rows || []){
     const id = toNum(r.id);
-    if (id) DB.proc.set(id, {id, anio: toNum(r.ano) || null});
+    if (id) DB.proc.set(id, {id, anio: toNum(r.ano) || null,
+      tipo: clean(r.procedimiento) ? typeOf(PROC_TYPES, r.procedimiento, "Sin tipo").label : null});
   }
 
   for (const r of t.interv?.rows || []){
@@ -68,7 +69,6 @@ function ingest(wb, fname){
       pid: toNum(r.procedimientoid), iid, folio: toNum(r.folio),
       tipoRaw: clean(r.tipoproc), espRaw: clean(r.especialidad), esp,
       procT, intT: typeOf(INTERV_TYPES, r.especialidad, "Sin especialidad"),
-      cat: procT.label,
       code, juzgado, alcaldia: clean(r.alcaldia) || ALC_NAME[code] || "",
       lugarA, lugarCode: NAME_TO_CODE[norm(lugarA)] || "", colonia,
       colKey: colonia ? colonia + "|" + lugarA : "",
@@ -107,7 +107,8 @@ function ingest(wb, fname){
 function prepare(){
   DB.all = [...DB.interv.values()].sort((a,b) => a.folio - b.folio);
   for (const i of DB.all){
-    const yr = DB.proc.get(i.pid)?.anio;
+    const p = DB.proc.get(i.pid), yr = p?.anio;
+    i.cat = p?.tipo || i.procT.label;   // tipo de procedimiento según la hoja Procedimientos
     const hit = DB.reg.find(r => i.folio >= r.a && i.folio <= r.b && (!yr || r.fecha.getUTCFullYear() === yr));
     i.fecha = hit ? hit.fecha : null;
   }
@@ -130,14 +131,14 @@ function buildIssues(){
   for (const f of DB.files){
     if (!f.cols.interv) continue; // un archivo solo con Registro no se revisa
     for (const [key, def] of Object.entries(SCHEMA)){
-      if (def.optional || (def.onlyWithRegistro && !hasReg)) continue;
+      if (def.optional) continue;
       const cols = f.cols[key];
       if (!cols){ if (def.missing) add(f.name, def.label, "Hoja completa", ...def.missing); continue; }
       const covered = new Set();
       for (const c of def.combos || [])
         if (c.all.every(k => !cols.has(k))){ add(f.name, def.label, c.label, c.sev, c.fx); c.all.forEach(k => covered.add(k)); }
-      for (const [k, label, sev, fx] of def.cols)
-        if (sev && !cols.has(k) && !covered.has(k)) add(f.name, def.label, label, sev, fx);
+      for (const [k, label, sev, fx, reg] of def.cols)
+        if (sev && !cols.has(k) && (!reg || hasReg) && !covered.has(k)) add(f.name, def.label, label, sev, fx);
     }
     const sk = f.skipped;
     if (sk.interv) add(f.name, "Intervenciones", plural(sk.interv, "fila omitida", "filas omitidas"), "media", "Tienen el Intervención ID vacío o con letras.");

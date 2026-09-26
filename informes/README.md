@@ -20,7 +20,7 @@ Archivo: `diario.html`. Es un solo archivo que se abre con doble clic en el nave
 |---|---|
 | Intervenciones | Filas de la hoja Intervenciones. Es la base de todo el tablero. |
 | Procedimientos | Valores distintos de *Procedimiento ID* entre las intervenciones filtradas. |
-| Tipo de procedimiento | Columna *Tipo Proc* de cada intervención: Daño, Bache, Carpeta de Investigación, Remisión Ordinaria o Queja. |
+| Tipo de procedimiento | Procedimientos distintos de la selección, contados por la columna *Procedimiento* de la hoja Procedimientos (Daño, Bache, Carpeta de Investigación, Remisión Ordinaria o Queja). Si falta esa hoja, se usa *Tipo Proc* de Intervenciones. |
 | Personas atendidas | Filas de la hoja Vehículos cuyos procedimientos están en la selección. |
 | Bienes valuados | Suma de *Monto* de la hoja Bienes para los procedimientos de la selección, agrupada por propietario. |
 | Alcaldía | Clave del juzgado. Si no hay juzgado, se usa la columna Alcaldía. |
@@ -62,7 +62,8 @@ El tablero carga lo que encuentra y muestra la tarjeta **«Faltan datos en el ar
 | Bienes | Monto | Importante | Montos en $0. |
 | Bienes | Propietario | Afecta un dato | Todo aparece como «Sin dato». |
 | Bienes | Descripción, Juzgado, Cantidad | Menor | Se muestran vacíos o se asume 1 pieza. |
-| Procedimientos | Hoja o Año | Menor | Con un Registro de varios años, algunas fechas podrían cruzarse. |
+| Procedimientos | Hoja o Procedimiento | Afecta un dato | El tipo de procedimiento se toma de *Tipo Proc* de Intervenciones. |
+| Procedimientos | Año | Menor | Con un Registro de varios años, algunas fechas podrían cruzarse. |
 | Registro | Hoja completa | Sin aviso | Es opcional; sin ella no hay fechas ni gráfica por día. |
 
 El aviso también reporta:

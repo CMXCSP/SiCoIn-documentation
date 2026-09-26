@@ -15,15 +15,17 @@ const SEV_LABEL = {alta:"Importante", media:"Afecta un dato", baja:"Menor"};
 /* ---------- Esquema: única fuente de verdad sobre hojas y columnas ----------
    need: columnas que identifican la hoja aunque tenga otro nombre.
    cols: [clave normalizada, nombre visible, impacto si falta, efecto si falta]
-         (sin impacto = la columna es opcional y no genera aviso)
+         (sin impacto = la columna es opcional y no genera aviso;
+          quinto campo "reg" = solo se avisa si se cargó la hoja Registro)
    combos: faltantes que juntos tienen un efecto mayor que por separado.
    missing: impacto y efecto si falta la hoja completa. */
 const YEAR_FX = "No se conoce el año de cada procedimiento; si el Registro abarca varios años, algunas fechas podrían cruzarse.";
+const PROC_FX = "La incidencia por tipo de procedimiento se calcula con la columna Tipo Proc de Intervenciones.";
 const LINK_FX = "Tienen el Procedimiento ID vacío o con letras.";
 const SCHEMA = {
   proc: { label:"Procedimientos", name:"procedimientos", need:["id","procedimiento"],
-    onlyWithRegistro:true, missing:["baja", YEAR_FX],
-    cols:[["id","ID"], ["ano","Año","baja",YEAR_FX]] },
+    missing:["media", `${PROC_FX} ${YEAR_FX}`],
+    cols:[["id","ID"], ["procedimiento","Procedimiento","media",PROC_FX], ["ano","Año","baja",YEAR_FX,"reg"]] },
   interv: { label:"Intervenciones", name:"intervenciones", need:["intervencionid","folio"],
     cols:[
       ["intervencionid","Intervención ID","alta","No se pudieron cargar las intervenciones de este archivo."],
