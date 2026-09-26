@@ -17,6 +17,8 @@ function bindSeg(card, attr, key){
   }));
 }
 const pick = (card, s) => card.querySelector(s);
+const PEND = "Pendiente de datos";
+const bienesPend = r => r.esp === "Bienes" && DB.montoHolder.get(r.pid) === r.iid && !DB.bienesByPid.get(r.pid);
 const filterAndRefresh = (dim, key) => { toggleFilter(dim, key); refresh(); };
 
 const CARDS = [
@@ -202,13 +204,16 @@ const CARDS = [
       {k:"folio", l:"Folio", num:true},
       {k:"fecha", l:"Fecha", num:true, when: () => DB.hasDates, html: r => fmtDate(r.fecha), csv: r => isoDate(r.fecha), sort: r => r.fecha ? +r.fecha : 0},
       {k:"pid", l:"Proc.", num:true},
-      {k:"cat", l:"Tipo de hecho", html: r => `<span class="tag">${esc(r.cat)}</span>`},
-      {k:"espRaw", l:"Especialidad"},
+      {k:"proc", l:"Tipo de procedimiento", get: r => r.procT.label, html: r => pill(r.procT)},
+      {k:"interv", l:"Tipo de intervención", get: r => r.intT.label, html: r => pill(r.intT)},
       {k:"juzgado", l:"Juzgado"},
       {k:"lugarA", l:"Alcaldía del hecho", html: r => esc(r.lugarA) + (r.otraAlcaldia ? `<span class="flag" title="Distinta a la alcaldía del juzgado">otra alcaldía</span>` : "")},
       {k:"colonia", l:"Colonia"},
       {k:"personas", l:"Personas", num:true, get: r => DB.vehByPid.get(r.pid) || 0},
-      {k:"monto", l:"Bienes", num:true, get: r => DB.montoHolder.get(r.pid) === r.iid ? (DB.bienesByPid.get(r.pid) || 0) : 0, html: r => r._monto ? fmtM0(r._monto) : ""}
+      // Una valuación de bienes sin monto en la hoja Bienes se marca como pendiente
+      {k:"monto", l:"Bienes", num:true, get: r => DB.montoHolder.get(r.pid) === r.iid ? (DB.bienesByPid.get(r.pid) || 0) : 0,
+        html: r => r._monto ? fmtM0(r._monto) : bienesPend(r) ? `<span class="pend">${PEND}</span>` : "",
+        csv: r => r._monto || (bienesPend(r) ? PEND : "")}
     ],
     setup(card){
       let t;

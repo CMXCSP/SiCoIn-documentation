@@ -68,13 +68,14 @@ function ingest(wb, fname){
       pid: toNum(r.procedimientoid), iid, folio: toNum(r.folio),
       tipoRaw: clean(r.tipoproc), tipo, espRaw: clean(r.especialidad), esp,
       cat: esp === "Tránsito" ? tipo : esp,         // tipo de hecho como en el Guion de peritos
+      procT: typeOf(PROC_TYPES, r.tipoproc, "Sin tipo"), intT: typeOf(INTERV_TYPES, r.especialidad, "Sin especialidad"),
       code, juzgado, alcaldia: clean(r.alcaldia) || ALC_NAME[code] || "",
       lugarA, lugarCode: NAME_TO_CODE[norm(lugarA)] || "", colonia,
       colKey: colonia ? colonia + "|" + lugarA : "",
       fecha: null
     };
     i.otraAlcaldia = !!(i.lugarCode && i.code && i.lugarCode !== i.code);
-    i.hay = norm([i.folio, i.pid, juzgado, colonia, lugarA, i.alcaldia, i.tipoRaw, i.espRaw].join(" "));
+    i.hay = norm([i.folio, i.pid, juzgado, colonia, lugarA, i.alcaldia, i.tipoRaw, i.espRaw, i.procT.label, i.intT.label].join(" "));
     DB.interv.set(iid, i);
   }
 

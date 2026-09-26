@@ -96,6 +96,24 @@ function tipoShort(t){
   return clean(t) || "Sin tipo";
 }
 
+/* Nombres visibles y color de badge de los tipos de procedimiento e intervención.
+   [texto que se busca en el valor normalizado, nombre visible, color]; el orden importa
+   («Bache (Daño por Vía Pública)» debe reconocerse como Bache antes que como Daño). */
+const PROC_TYPES = [
+  ["bache","Bache","var(--amber)"], ["carpeta","Carpeta de Investigación","var(--slate)"],
+  ["dano","Daño","var(--guinda)"], ["ordinaria","Remisión Ordinaria","var(--teal)"], ["queja","Queja","var(--violet)"]
+];
+const INTERV_TYPES = [
+  ["transito","PTT en tránsito","var(--slate)"], ["bien","PTT valuación de bienes","var(--teal)"],
+  ["mecanic","PTT valuación daño mecánico","var(--amber)"], ["ampliacion","Ampliación de dictamen","var(--guinda)"],
+  ["revision","Revisión Técnica","var(--violet)"]
+];
+const typeOf = (list, v, empty) => {
+  const n = norm(v), hit = list.find(([k]) => n.includes(k));
+  return hit ? {label:hit[1], color:hit[2]} : {label:clean(v) || empty, color:"var(--ink-3)"};
+};
+const pill = t => `<span class="pill" style="--c:${t.color}">${esc(t.label)}</span>`;
+
 /* Preferencias en el navegador (qué está contraído). Nunca guarda datos del Excel. */
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch { return d; } },

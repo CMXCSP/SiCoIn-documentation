@@ -2,7 +2,7 @@
   --paper:#F2F3F1; --surface:#FFFFFF; --ink:#1B2430; --ink-2:#4A5563; --ink-3:#7A8491;
   --rule:#D9DDD8; --rule-2:#E8EAE6;
   --amber:#C9822A; --amber-soft:#F3E2C8; --guinda:#8C1D40; --guinda-soft:#F1DCE3;
-  --slate:#4D5B6C; --teal:#2E7C7A;
+  --slate:#4D5B6C; --teal:#2E7C7A; --violet:#6B4E9B;
   --focus:#8C1D40;
   --display:"Bahnschrift","DIN Alternate","DIN 2014","Barlow","Roboto Condensed","Arial Narrow",system-ui,sans-serif;
   --body:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
@@ -13,13 +13,13 @@
   :root:not([data-theme="light"]){
     --paper:#14181E; --surface:#1C222A; --ink:#E8EBEE; --ink-2:#B5BCC5; --ink-3:#8791A0;
     --rule:#313944; --rule-2:#262D36; --amber:#E0A04A; --amber-soft:#3A2E1D; --guinda:#E0708F; --guinda-soft:#3B2029;
-    --slate:#8C9BB0; --teal:#5FB3AF; --focus:#E0708F;
+    --slate:#8C9BB0; --teal:#5FB3AF; --violet:#A98BD6; --focus:#E0708F;
   }
 }
 :root[data-theme="dark"]{
   --paper:#14181E; --surface:#1C222A; --ink:#E8EBEE; --ink-2:#B5BCC5; --ink-3:#8791A0;
   --rule:#313944; --rule-2:#262D36; --amber:#E0A04A; --amber-soft:#3A2E1D; --guinda:#E0708F; --guinda-soft:#3B2029;
-  --slate:#8C9BB0; --teal:#5FB3AF; --focus:#E0708F;
+  --slate:#8C9BB0; --teal:#5FB3AF; --violet:#A98BD6; --focus:#E0708F;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -192,6 +192,8 @@ th.sortable{cursor:pointer;user-select:none;white-space:nowrap}
 th.sortable::after{content:"";display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;border:4px solid transparent}
 th[aria-sort="ascending"]::after{border-bottom-color:var(--ink-2);margin-bottom:4px}
 th[aria-sort="descending"]::after{border-top-color:var(--ink-2);margin-top:4px}
+.pill{display:inline-block;font-size:12px;line-height:18px;padding:0 7px;border-radius:3px;white-space:nowrap;color:var(--ink);background:color-mix(in srgb, var(--c) 16%, transparent);border-left:3px solid var(--c)}
+.pend{font-size:12px;color:var(--guinda);font-style:italic;white-space:nowrap}
 .flag{display:inline-block;font-size:11.5px;padding:1px 6px;border-radius:3px;background:var(--amber-soft);color:var(--ink);margin-left:6px}
 .tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:3px;background:var(--rule-2)}
 .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
