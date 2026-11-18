@@ -1,0 +1,1486 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Manual técnico y arquitectónico del sistema.">
+      
+      
+        <meta name="author" content="alexannotations">
+      
+      
+        <link rel="canonical" href="https://cmxcsp.github.io/SiCoIn-documentation/informes/diario_src/index.html">
+      
+      
+        <link rel="prev" href="../control_operativo_src/index.html">
+      
+      
+        <link rel="next" href="../control_operativo_src/doc/catalogos.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Informe Diario - SiCoIn Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tablero-para-informe-de-hechos-de-transito" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../index.html" title="SiCoIn Documentación" class="md-header__button md-logo" aria-label="SiCoIn Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SiCoIn Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Informe Diario
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  
+  Informes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../logica/analisis.html" class="md-tabs__link">
+          
+  
+  
+  Lógica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mockups_wireframe/jerarquias_menus.html" class="md-tabs__link">
+          
+  
+  
+  Diseño
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../docs/instalar_mkdocs.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Instalación de MkDocs
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SiCoIn Documentación" class="md-nav__button md-logo" aria-label="SiCoIn Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SiCoIn Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Informes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen de Informes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control_operativo_src/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Operativo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informe Diario
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informe Diario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guía rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guía rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funcionamiento general
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-calculan-las-cifras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo se calculan las cifras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-encuentra-hojas-y-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo encuentra hojas y columnas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinacion-de-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinación de archivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#si-faltan-hojas-o-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si faltan hojas o columnas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categorias-nuevas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorías nuevas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código fuente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código fuente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambios-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control_operativo_src/doc/catalogos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogos (Control Operativo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lógica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lógica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logica/analisis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análisis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logica/discusion_propuesta.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discusión y propuesta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Diseño
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mockups_wireframe/jerarquias_menus.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jerarquía de menús
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notas de base de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/instalar_mkdocs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación de MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guía rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guía rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funcionamiento general
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-calculan-las-cifras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo se calculan las cifras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-encuentra-hojas-y-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo encuentra hojas y columnas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinacion-de-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinación de archivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#si-faltan-hojas-o-columnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Si faltan hojas o columnas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categorias-nuevas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorías nuevas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código fuente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código fuente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambios-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tablero-para-informe-de-hechos-de-transito">Tablero para informe de hechos de tránsito</h1>
+<hr />
+<h2 id="guia-rapida"><strong>Guía rápida</strong></h2>
+<p>El tablero se entrega como un solo HTML <a href="dist/tablero_peritos.html"><code>tablero_peritos.html</code></a>, que se abre con doble clic en el navegador y funciona sin internet para determinar los datos para el informe diario.</p>
+<h3 id="funcionamiento-general">Funcionamiento general</h3>
+<ul>
+<li><strong>Carga:</strong> arrastra el Excel sobre la página o haz clic en la zona de carga. Acepta <code>.xlsx</code> y varios archivos a la vez.</li>
+<li><strong>Privacidad:</strong> el archivo se lee dentro del navegador. La página tiene una política de seguridad que bloquea cualquier conexión de red, así que los datos no salen del equipo.</li>
+<li><strong>Agregar archivo:</strong> combina el nuevo Excel con los datos ya cargados. Sirve, por ejemplo, para sumar la exportación de folios con el informe diario y así obtener las fechas.</li>
+<li><strong>Cargar otro Excel:</strong> borra lo cargado y empieza de cero.</li>
+<li><strong>Filtros:</strong></li>
+<li>Panel lateral: tipo de intervención, alcaldía, especialidad, folio, fecha y búsqueda libre.</li>
+<li>Clic en cualquier barra, colonia o juzgado para filtrar. Otro clic quita el filtro.</li>
+<li>Todos los filtros se aplican a todo el tablero.</li>
+<li><strong>Tarjetas y panel:</strong> se pueden contraer. El navegador recuerda cuáles quedaron cerradas. Las tarjetas contraídas no se imprimen.</li>
+</ul>
+<h2 id="como-se-calculan-las-cifras">Cómo se calculan las cifras</h2>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Cálculo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intervenciones</td>
+<td>Filas de la hoja Intervenciones. Es la base de todo el tablero.</td>
+</tr>
+<tr>
+<td>Procedimientos</td>
+<td>Valores distintos de <em>Procedimiento ID</em> entre las intervenciones filtradas.</td>
+</tr>
+<tr>
+<td>Tipo de hecho</td>
+<td>Si la especialidad es <em>PTT en Tránsito</em>, se usa el tipo de procedimiento (Daño, Bache, Carpeta). Si no, la especialidad (Mecánico, Bienes).</td>
+</tr>
+<tr>
+<td>Personas atendidas</td>
+<td>Filas de la hoja Vehículos cuyos procedimientos están en la selección.</td>
+</tr>
+<tr>
+<td>Bienes valuados</td>
+<td>Suma de <em>Monto</em> de la hoja Bienes para los procedimientos de la selección, agrupada por propietario.</td>
+</tr>
+<tr>
+<td>Alcaldía</td>
+<td>Clave del juzgado. Si no hay juzgado, se usa la columna Alcaldía.</td>
+</tr>
+<tr>
+<td>Fechas</td>
+<td>Cada folio se busca dentro de los rangos <em>Folio inicial</em> y <em>Folio final</em> de la hoja Registro, respetando el año del procedimiento.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="como-encuentra-hojas-y-columnas">Cómo encuentra hojas y columnas</h2>
+<ul>
+<li><strong>Hojas:</strong> se reconocen por su nombre: Procedimientos, Intervenciones, Vehículos, Bienes y Registro. Si una hoja tiene otro nombre pero contiene las columnas clave de alguno de esos tipos, también se reconoce. Las demás hojas, como Estadística, se ignoran.</li>
+<li><strong>Encabezado:</strong> de las primeras 10 filas, se toma la que tiene más celdas con texto. Un título de una sola celda arriba de la tabla no afecta.</li>
+<li><strong>Nombres de columna:</strong> se comparan sin acentos, mayúsculas, espacios ni signos. «Intervención ID», «INTERVENCION ID» e «intervencion_id» son equivalentes.</li>
+<li><strong>Orden y columnas extra:</strong> el orden no importa y las columnas que no se usan se ignoran.</li>
+<li><strong>Precauciones:</strong></li>
+<li>Si hay dos columnas con el mismo nombre, se usa la de más a la derecha.</li>
+<li>Los IDs de procedimiento e intervención deben ser números. Las filas con letras se omiten.</li>
+<li>Los montos aceptan formato con <code>$</code> y comas.</li>
+</ul>
+<h2 id="combinacion-de-archivos">Combinación de archivos</h2>
+<ul>
+<li>Procedimientos e intervenciones repetidos no se duplican, porque se identifican por su ID. Si un registro aparece en dos archivos, se queda la versión del último archivo cargado.</li>
+<li>En Vehículos y Bienes, si un procedimiento ya tenía registros de un archivo anterior, se conservan esos y se ignoran los del archivo nuevo.</li>
+</ul>
+<h2 id="si-faltan-hojas-o-columnas">Si faltan hojas o columnas</h2>
+<p>El tablero carga lo que encuentra y muestra la tarjeta <strong>«Faltan datos en el archivo»</strong> con cada faltante y su efecto. Sin la hoja Intervenciones, o sin la columna <em>Intervención ID</em>, no se puede cargar nada.</p>
+<table>
+<thead>
+<tr>
+<th>Hoja</th>
+<th>Falta</th>
+<th>Impacto</th>
+<th>Qué se afecta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intervenciones</td>
+<td>Procedimiento ID</td>
+<td>Importante</td>
+<td>No se cuentan procedimientos ni se ligan personas y bienes.</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Especialidad</td>
+<td>Importante</td>
+<td>Todo aparece como «Sin especialidad».</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Juzgado y Alcaldía</td>
+<td>Importante</td>
+<td>No se puede ubicar la alcaldía.</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Folio</td>
+<td>Afecta un dato</td>
+<td>Sin filtro de folio ni fechas.</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Tipo Proc</td>
+<td>Afecta un dato</td>
+<td>El tipo de hecho de tránsito aparece como «Sin tipo».</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Juzgado</td>
+<td>Afecta un dato</td>
+<td>Se usa Alcaldía y la gráfica de juzgados queda vacía.</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Lugar Colonia</td>
+<td>Afecta un dato</td>
+<td>La tabla de colonias queda vacía.</td>
+</tr>
+<tr>
+<td>Intervenciones</td>
+<td>Lugar Alcaldía</td>
+<td>Menor</td>
+<td>No se detectan hechos en otra alcaldía.</td>
+</tr>
+<tr>
+<td>Vehículos</td>
+<td>Hoja completa</td>
+<td>Importante</td>
+<td>Personas atendidas en 0.</td>
+</tr>
+<tr>
+<td>Vehículos</td>
+<td>Género</td>
+<td>Afecta un dato</td>
+<td>Las personas aparecen como «Sin dato».</td>
+</tr>
+<tr>
+<td>Bienes</td>
+<td>Hoja completa</td>
+<td>Afecta un dato</td>
+<td>Bienes valuados en $0.</td>
+</tr>
+<tr>
+<td>Bienes</td>
+<td>Monto</td>
+<td>Importante</td>
+<td>Montos en $0.</td>
+</tr>
+<tr>
+<td>Bienes</td>
+<td>Propietario</td>
+<td>Afecta un dato</td>
+<td>Todo aparece como «Sin dato».</td>
+</tr>
+<tr>
+<td>Bienes</td>
+<td>Descripción, Juzgado, Cantidad</td>
+<td>Menor</td>
+<td>Se muestran vacíos o se asume 1 pieza.</td>
+</tr>
+<tr>
+<td>Procedimientos</td>
+<td>Hoja o Año</td>
+<td>Menor</td>
+<td>Con un Registro de varios años, algunas fechas podrían cruzarse.</td>
+</tr>
+<tr>
+<td>Registro</td>
+<td>Hoja completa</td>
+<td>Sin aviso</td>
+<td>Es opcional; sin ella no hay fechas ni gráfica por día.</td>
+</tr>
+</tbody>
+</table>
+<p>El aviso también reporta:</p>
+<ul>
+<li>Filas omitidas porque el ID está vacío o tiene letras.</li>
+<li>Personas o bienes cuyo <em>Procedimiento ID</em> no aparece en Intervenciones. Esos registros no se cuentan.</li>
+</ul>
+<h2 id="categorias-nuevas">Categorías nuevas</h2>
+<p>Una intervención o un tipo de procedimiento que no esta registrada, por ejemplo «Revisión técnica» o «Queja», se agrega automáticamente como una categoría más, con su nombre original.</p>
+<hr />
+<h2 id="codigo-fuente"><strong><em>Código fuente</em></strong></h2>
+<p>Archivo:
+Genera <a href="dist/tablero_peritos.html"><code>tablero_peritos.html</code></a> con estilos, código y el lector de Excel incluidos. No requiere instalar nada. Es un solo archivo </p>
+<p>Se edita en estos archivos.</p>
+<h3 id="construir">Construir</h3>
+<div class="highlight"><pre><span></span><code>python build.py
+</code></pre></div>
+<h3 id="estructura">Estructura</h3>
+<table>
+<thead>
+<tr>
+<th>Archivo</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template.html</code></td>
+<td>Plantilla con la estructura fija de la página: barra superior, zona de carga, panel de filtros y zonas donde se insertan las tarjetas.</td>
+</tr>
+<tr>
+<td><code>styles.css</code></td>
+<td>Estilos, tema claro/oscuro, diseño adaptable e impresión.</td>
+</tr>
+<tr>
+<td><code>js/config.js</code></td>
+<td>Catálogo de alcaldías, <strong>esquema de hojas y columnas</strong> y utilidades.</td>
+</tr>
+<tr>
+<td><code>js/data.js</code></td>
+<td>Lectura del Excel, combinación de archivos, cálculos fijos y diagnóstico de faltantes.</td>
+</tr>
+<tr>
+<td><code>js/state.js</code></td>
+<td>Filtros y cálculo de la selección en una sola pasada.</td>
+</tr>
+<tr>
+<td><code>js/charts.js</code></td>
+<td>Gráficas: barras verticales, horizontales y pastel.</td>
+</tr>
+<tr>
+<td><code>js/cards.js</code></td>
+<td><strong>Registro de tarjetas.</strong></td>
+</tr>
+<tr>
+<td><code>js/app.js</code></td>
+<td>Arranque, indicadores, filtros, panel lateral y eventos.</td>
+</tr>
+<tr>
+<td><code>vendor/xlsx.mini.min.js</code></td>
+<td>SheetJS 0.18.5 (licencia Apache 2.0).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cambios-frecuentes">Cambios frecuentes</h3>
+<p><strong>Agregar, quitar o mover una tarjeta.</strong> Edita la lista <code>CARDS</code> en <code>js/cards.js</code>. Cada tarjeta define:</p>
+<ul>
+<li><code>id</code>, <code>title</code>, <code>desc</code> y <code>span</code> (ancho en columnas de 12);</li>
+<li><code>body</code>, el HTML inicial;</li>
+<li><code>render(ctx, card)</code>, que la dibuja.</li>
+</ul>
+<p>Opcionalmente puede definir:</p>
+<ul>
+<li><code>tools</code>, botones del encabezado;</li>
+<li><code>setup(card)</code>, que se ejecuta una vez;</li>
+<li><code>visible(ctx)</code>, para mostrarla solo en ciertos casos.</li>
+</ul>
+<p>El orden de la lista es el orden en pantalla. Colapsar, recordar el estado e imprimir funcionan sin código adicional.</p>
+<p><code>ctx</code> contiene la selección actual:</p>
+<ul>
+<li><code>cur</code>: intervenciones filtradas.</li>
+<li><code>pids</code>: procedimientos.</li>
+<li><code>veh</code>: personas.</li>
+<li><code>bienes</code>, <code>totBien</code> y <code>owners</code>.</li>
+<li><code>mas</code> y <code>fem</code>.</li>
+<li><code>except[dim]</code>: la selección sin el filtro de esa dimensión. Sirve para gráficas que filtran al hacer clic.</li>
+</ul>
+<p><strong>Reconocer una columna nueva o cambiar el aviso de faltantes.</strong> Edita <code>SCHEMA</code> en <code>js/config.js</code>. Ahí están el nombre visible de cada columna, su impacto y el efecto que se muestra si falta. Los nombres se comparan normalizados: sin acentos, mayúsculas, espacios ni signos.</p>
+<p><strong>Agregar un filtro por clic.</strong> Agrega la dimensión en <code>DIMS</code> (<code>js/state.js</code>) y usa <code>toggleFilter(dim, valor)</code> seguido de <code>refresh()</code>.</p>
+<p>*Generado con IA.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.suggest"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

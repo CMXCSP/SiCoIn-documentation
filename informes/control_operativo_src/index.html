@@ -1,0 +1,2087 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Manual técnico y arquitectónico del sistema.">
+      
+      
+        <meta name="author" content="alexannotations">
+      
+      
+        <link rel="canonical" href="https://cmxcsp.github.io/SiCoIn-documentation/informes/control_operativo_src/index.html">
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+        <link rel="next" href="../diario_src/index.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Control Operativo - SiCoIn Documentación</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-concepto-y-planeacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../index.html" title="SiCoIn Documentación" class="md-header__button md-logo" aria-label="SiCoIn Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SiCoIn Documentación
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Control Operativo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+  
+  Informes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../logica/analisis.html" class="md-tabs__link">
+          
+  
+  
+  Lógica
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mockups_wireframe/jerarquias_menus.html" class="md-tabs__link">
+          
+  
+  
+  Diseño
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../docs/instalar_mkdocs.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Instalación de MkDocs
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SiCoIn Documentación" class="md-nav__button md-logo" aria-label="SiCoIn Documentación" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SiCoIn Documentación
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Informes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen de Informes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Operativo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Operativo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-operativo-de-jornadas-y-asignacion-de-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Operativo de Jornadas y Asignación de Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-diagnostico-del-archivo-actual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Diagnóstico del archivo actual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-variedad-de-turnos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Variedad de turnos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Objetivos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Objetivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-objetivo-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Objetivo general
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-objetivos-especificos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Objetivos específicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-principios-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Principios de diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Principios de diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-continuidad-y-familiaridad-operativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Continuidad y familiaridad operativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rigor-sin-rigidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Rigor sin rigidez
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-portabilidad-y-soberania-del-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Portabilidad y soberanía del archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-contexto-de-operacion-decisiones-confirmadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Contexto de operación (decisiones confirmadas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-alcance-funcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alcance funcional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Alcance funcional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-gestion-de-personal-y-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Gestión de personal y plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-esquemas-de-turnos-y-calendario-proyectado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Esquemas de turnos y calendario proyectado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-registro-diario-y-coberturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Registro diario y coberturas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-planeacion-futura-y-ausencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Planeación futura y ausencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-organizacion-visual-y-ayuda-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Organización visual y ayuda de asignación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Organización visual y ayuda de asignación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-barra-superior-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Barra superior de control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cuadricula-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Cuadrícula principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-contexto-historico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Contexto histórico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-avisos-no-bloqueantes-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Avisos no bloqueantes (propuesta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-modelo-de-datos-propuesta-conceptual-por-definir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Modelo de datos (propuesta conceptual por definir)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-almacenamiento-portabilidad-y-rutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Almacenamiento, portabilidad y rutas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-consultas-reportes-y-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Consultas, reportes y auditoría
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-respaldo-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Respaldo y seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-consideraciones-tecnicas-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Consideraciones técnicas (Python)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-puntos-por-definir-para-implementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Puntos por definir para implementar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-plan-de-trabajo-sugerido-cuando-se-autorice-implementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Plan de trabajo sugerido (cuando se autorice implementar)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Resumen ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diario_src/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informe Diario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc/catalogos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogos (Control Operativo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lógica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lógica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logica/analisis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análisis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logica/discusion_propuesta.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discusión y propuesta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Diseño
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mockups_wireframe/jerarquias_menus.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jerarquía de menús
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataBase/info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notas de base de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/instalar_mkdocs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación de MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-operativo-de-jornadas-y-asignacion-de-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Operativo de Jornadas y Asignación de Actividades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-diagnostico-del-archivo-actual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Diagnóstico del archivo actual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-variedad-de-turnos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Variedad de turnos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Objetivos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Objetivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-objetivo-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Objetivo general
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-objetivos-especificos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Objetivos específicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-principios-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Principios de diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Principios de diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-continuidad-y-familiaridad-operativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Continuidad y familiaridad operativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rigor-sin-rigidez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Rigor sin rigidez
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-portabilidad-y-soberania-del-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Portabilidad y soberanía del archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-contexto-de-operacion-decisiones-confirmadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Contexto de operación (decisiones confirmadas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-alcance-funcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alcance funcional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Alcance funcional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-gestion-de-personal-y-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Gestión de personal y plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-esquemas-de-turnos-y-calendario-proyectado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Esquemas de turnos y calendario proyectado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-registro-diario-y-coberturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Registro diario y coberturas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-planeacion-futura-y-ausencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Planeación futura y ausencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-organizacion-visual-y-ayuda-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Organización visual y ayuda de asignación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Organización visual y ayuda de asignación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-barra-superior-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Barra superior de control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cuadricula-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Cuadrícula principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-contexto-historico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Contexto histórico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-avisos-no-bloqueantes-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Avisos no bloqueantes (propuesta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-modelo-de-datos-propuesta-conceptual-por-definir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Modelo de datos (propuesta conceptual por definir)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-almacenamiento-portabilidad-y-rutas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Almacenamiento, portabilidad y rutas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-consultas-reportes-y-auditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Consultas, reportes y auditoría
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-respaldo-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Respaldo y seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-consideraciones-tecnicas-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Consideraciones técnicas (Python)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-puntos-por-definir-para-implementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Puntos por definir para implementar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-plan-de-trabajo-sugerido-cuando-se-autorice-implementar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Plan de trabajo sugerido (cuando se autorice implementar)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-resumen-ejecutivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Resumen ejecutivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="documento-de-concepto-y-planeacion">Documento de Concepto y Planeación</h1>
+<h2 id="control-operativo-de-jornadas-y-asignacion-de-actividades">Control Operativo de Jornadas y Asignación de Actividades</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estado</strong></td>
+<td>Propuesta conceptual (v 1.1.0)</td>
+</tr>
+<tr>
+<td><strong>Fecha</strong></td>
+<td>2026-10-08</td>
+</tr>
+<tr>
+<td><strong>Fase actual</strong></td>
+<td>Planeación. <strong>No se implementa nada todavía.</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-introduccion">1. Introducción</h2>
+<p>Actualmente el control operativo se realiza en una hoja de cálculo que sirve como herramienta de seguimiento diario del personal. Permite registrar:</p>
+<ul>
+<li>Asistencia y disponibilidad operativa continua (servicio 24/7, sin periodos muertos).</li>
+<li>Folios numéricos de intervención asignados (un folio es una unidad de trabajo).</li>
+<li>Actividades especiales, comisiones textuales y notas breves (ej. <em>notificaciones</em>, <em>apoyo</em>, <em>evento</em>).</li>
+<li>Incidencias administrativas programadas o del día: vacaciones, licencias médicas, permisos, descansos.</li>
+<li>Historial visual inmediato para balancear la carga de trabajo entre turnos consecutivos.</li>
+</ul>
+<h3 id="11-diagnostico-del-archivo-actual">1.1 Diagnóstico del archivo actual</h3>
+<p>Del análisis de la plantilla de la hoja de calculo (pestaña <code>Asignacion</code>):</p>
+<ul>
+<li>Una sola hoja que crece hacia la derecha: ~Xn columnas por ~Ym filas. Cada jornada es un bloque de ~6 columnas (encabezado con turno y fecha; debajo estado de asistencia y celdas libres para cada colaborador).</li>
+<li>Cobertura histórica de un mes-año inicial a un mes-año final (anterior o en curso), ~n bloques de jornada.</li>
+<li>Contenido mezclado en las mismas celdas: códigos (<code>A</code>, <code>F</code>, <code>V</code>, <code>LM</code>, <code>P</code>) para el estado de disponibilidad (Asistencia, Falta, Vacaciones, Licencia Medica, Permiso), folios de 1-5 dígitos que identifican la actividad principal de forma consecutiva, números cortos (<code>1</code>, <code>2</code>, <code>3</code>) para indicar el orden de asignación, notas libres y marcadores <code>---</code>, horas para identificar la hora de vencimiento de la actividad correspondiente al folio.</li>
+<li>Filtros por turno y adscripción; colores por adscripción para facilitar la lectura; columnas de identificación congeladas (turno, adscripcion y nombre).</li>
+<li>Existen variedad de turnos que conviven entre si, de forma independiente y continua, pero se traslapan entre si.</li>
+<li>Hay personal sin turno asignado y/o sin adscripción específica.</li>
+<li>Se genera un nuevo archivo para cada periodo anual, o si existe rotacion de personal (cambios de turno para todo el personal) o cambios en la estructura de los turnos.</li>
+<li><em>Riesgos</em>: crecimiento sin límite, riesgo de corrupción del archivo, búsqueda histórica manual, sin detección de folios duplicados.</li>
+</ul>
+<p>La migración a una aplicación local dedicada sustituye el modelo de hojas infinitas, reduce el riesgo de corrupción y permite una gestión multianual, portable y sin dependencias externas.</p>
+<h3 id="12-variedad-de-turnos">1.2 Variedad de turnos</h3>
+<ul>
+<li>Los turnos tienen variedad de jornadas de duración, con inicio y fin en diferentes horarios, conviven entre ellos, pudiendo traslaparse, pero siempre continuos, sin tiempos muertos.</li>
+<li>Para las jornadas que estan en cambio de dia se consideran el numero de dia que inician.</li>
+<li>Considerando la clasificación del personal es el turno que le corresponde.</li>
+<li>El grupo de clasificación debe cubrir 24/7, en algunos casos.</li>
+</ul>
+<p><strong>Personal de campo</strong>
+  - En algun momento existio jornada de <code>24x48</code> hrs. con 3 turnos ya no se emplea (el horario de entrada y salida puede variar, pero siempre debe existir continuidad). 
+  - Actualmente la jornada es de <code>24x72</code> hrs. con 4 turnos continuos.
+  - Sin importar fin de semana o dia festivo.
+  - Horario de 7:00 a 7:00 hrs del dia siguiente.
+  - <strong><code>T1</code></strong> inicio 2026/01/26
+  - <strong><code>T2</code></strong> inicio 2026/01/27
+  - <strong><code>T3</code></strong> inicio 2026/01/28
+  - <strong><code>T4</code></strong> inicio 2026/01/29</p>
+<p><strong>Valuadores</strong>
+  - Turnos de 12 hrs (presenciales) y 12 hrs (virtuales o con disponibilidad), para una jornada de 24 hrs.
+  - Dias festivos descansan <code>TAV</code> y/o <code>TBV</code>, labora <code>TEV</code>. El dia festivo se respeta para el turno que correspondia, no se recorre.
+  - <strong><code>TAV</code></strong> 07:00 a 7:00 hrs. una parte presencial y otra virtual, pero se considera una jornada completa de 24 hrs. Entre semana, una semana 3 guardias la siguiente 2 guardias, se intercala con <em>TBV</em>. Lunes -&gt; martes, miercoles -&gt; jueves, viernes -&gt; sabado, semana de 3 guardias; Martes -&gt; miercoles, jueves -&gt; viernes, semana de 2 guardias. Inicio 2026/10/05
+  - <strong><code>TBV</code></strong> 07:00 a 7:00 hrs. una parte presencial y otra virtual, pero se considera una jornada completa de 24 hrs. Entre semana, una semana 2 guardias la siguiente 3 guardias, se intercala con <em>TAV</em>. Martes -&gt; miercoles, jueves -&gt; viernes, semana de 2 guardias; Lunes -&gt; martes, miercoles -&gt; jueves, viernes -&gt; sabado, semana de 3 guardias. Inicio 2026/10/06.
+  - <strong><code>TEV</code></strong> 07:00 a 7:00 hrs. una parte presencial y otra virtual, pero se considera una jornada completa de 24 hrs. Sabados, domingos y dias festivos. Inicio 2026/10/03 </p>
+<p><strong>Coordinadores</strong>
+  - <strong><code>TM</code></strong> 7:00 a 15:00 hrs. de lunes a viernes con descanso en dias festivos. Inicio 2026/10/05
+  - <strong><code>TV</code></strong> 15:00 a 23:00 hrs. de lunes a viernes con descanso en dias festivos. Inicio 2026/10/05
+  - <strong><code>TNA</code></strong> 22:00 a 7:00 hrs. del dia siguiente, entre semana, una semana 3 guardias la siguiente 2 guardias, se intercala con <em>TNB</em>, descansa la guardia que empieza la noche anterior al festivo. Domingo -&gt; lunes, martes -&gt; miercoles, jueves -&gt; viernes, semana de 3 guardias; Lunes -&gt; martes, miercoles -&gt; jueves, semana de 2 guardias. Inicio 2026/10/04.
+  - <strong><code>TNB</code></strong> 22:00 a 7:00 hrs. del dia siguiente, entre semana, una semana 2 guardias la siguiente 3 guardias, se intercala con <em>TNA</em>, descansa la guardia que empieza la noche anterior al festivo. Lunes -&gt; martes, miercoles -&gt; jueves, semana de 2 guardias; Domingo -&gt; lunes, martes -&gt; miercoles, jueves -&gt; viernes, semana de 3 guardias. Inicio  2026/10/05.
+  - <strong><code>TE1</code></strong> 23:00 a 11:00 hrs. sabados, domingos y dias festivos. Viernes -&gt; sabado, sabado -&gt; domingo. En caso de los festivos entra a las 23:00 hrs. del dia previo al festivo. Inicio 2026/10/02
+  - <strong><code>TE2</code></strong> 11:00 a 23:00 hrs. sabados, domingos y dias festivos. Inicio 2026/10/03 </p>
+<pre><code>__DIBUJO:__
+- Separa por mes.
+- Semana de domingo a sábado, 7 columnas.
+- Resalta los festivos, y fines de semana.
+- Cada día es una línea de 24 h (marcas tenues cada 6 h).
+- Cada turno es una barra que inicia y termina en su hora real; si cruza la medianoche, la barra abarca ambos días.
+- Orden vertical dentro de cada semana: `Campo`, `Valuadores`, `Coordinadores`.
+- Cada grupo en carriles propios; la barras de un mismo grupo no se enciman.
+- Manten la continuidad en familia de tonos con variaciones de color, para la clasificación de personal.
+</code></pre>
+<hr />
+<h2 id="2-objetivos">2. Objetivos</h2>
+<h3 id="21-objetivo-general">2.1 Objetivo general</h3>
+<p>Desarrollar una aplicación local y portable para el control diario de actividades del personal, manteniendo la interfaz tabular que los operadores ya dominan, organizando la información en un archivo de datos local recuperable y facilitando la planeación futura de turnos y ausencias.</p>
+<h3 id="22-objetivos-especificos">2.2 Objetivos específicos</h3>
+<ol>
+<li><strong>Continuidad de interfaz.</strong> Replicar la cuadrícula editable por turno, adscripción y lista de personal, facilitando la identificación y lectura rapida.</li>
+<li><strong>Cero dependencias.</strong> Entregar un único ejecutable que funcione en cualquier PC con Windows (o linux de ser necesario, previa compilación) (incluso desde una memoria USB) sin instalar software de terceros ni servidores.</li>
+<li><strong>Base de datos única y ruta configurable.</strong> Un solo archivo de datos (<code>.db</code>) que contiene <strong>todo el histórico, sin separarlo por año</strong>. Reside por defecto junto al ejecutable, pero su ruta puede configurarse o reubicarse.</li>
+<li><strong>Motor de esquemas de turnos y vigencias.</strong> Administrar cambios de esquema (24x48, 24x72, 12 h, 8 h, etc.) con fechas de vigencia para proyectar el calendario operativo a futuro. Jornada, hora de inicio y termino, nombre del turno, etc.</li>
+<li><strong>Contexto histórico en pantalla.</strong> Mostrar las actividades y folios de la(s) jornada(s) anterior(es) de cada elemento (trabajador) para conservar orden y equidad en la asignación.</li>
+<li><strong>Coberturas y excepciones.</strong> Incorporar elementos (trabajador) de otros turnos por única ocasión con cambio temporal de adscripción.</li>
+<li><strong>Marcado no restrictivo de ausencias.</strong> Precargar vacaciones individuales con marcas visuales (<code>---</code>) sin bloquear la captura.</li>
+<li><strong>Exportación nativa.</strong> Generar reportes directos a Excel (<code>.xlsx</code>) sin requerir Office instalado.</li>
+</ol>
+<hr />
+<h2 id="3-principios-de-diseno">3. Principios de diseño</h2>
+<h3 id="31-continuidad-y-familiaridad-operativa">3.1 Continuidad y familiaridad operativa</h3>
+<p>El usuario final no debe experimentar una curva de aprendizaje pronunciada: disposición de columnas, navegación con teclado (Enter, Tab, flechas) y agrupaciones visuales equivalentes al Excel actual.</p>
+<h3 id="32-rigor-sin-rigidez">3.2 Rigor sin rigidez</h3>
+<p>El sistema informa y asiste (prellena vacaciones, señala inasistencias, avisa de folios repetidos), pero <strong>nunca bloquea</strong> la captura de folios o notas ante contingencias o cambios de última hora.</p>
+<h3 id="33-portabilidad-y-soberania-del-archivo">3.3 Portabilidad y soberanía del archivo</h3>
+<p>Todos los datos residen en un archivo físico SQLite estándar. Si el usuario necesita abrirlo por fuera, puede usar visores universales de base de datos o exportarlo a Excel en segundos. Considerar en el diseño arquitectonico, facilidad de cambiar el motor de base de datos (SQL).</p>
+<hr />
+<h2 id="4-contexto-de-operacion-decisiones-confirmadas">4. Contexto de operación (decisiones confirmadas)</h2>
+<table>
+<thead>
+<tr>
+<th>Decisión</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuarios de captura</td>
+<td><strong>Una sola persona, en una sola PC, diversos usuarios</strong></td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td><strong>Única</strong>, todo el histórico en un solo archivo (sin separar por año)</td>
+</tr>
+<tr>
+<td>Tecnología del ejecutable</td>
+<td><strong>Python</strong>, empaquetado en un ejecutable</td>
+</tr>
+<tr>
+<td>Acceso</td>
+<td>Local (<code>127.0.0.1</code>), sin exposición a la red</td>
+</tr>
+<tr>
+<td>Interfaz</td>
+<td>Pantalla web local abierta en el navegador predeterminado</td>
+</tr>
+<tr>
+<td>Arquitectura</td>
+<td>Con posibilidad de escalar y migrar</td>
+</tr>
+</tbody>
+</table>
+<p>Consecuencia: No se requieren roles, ni resolución de concurrencia. La complejidad se concentra en el modelo de datos, la rejilla de captura y el respaldo.</p>
+<hr />
+<h2 id="5-alcance-funcional">5. Alcance funcional</h2>
+<h3 id="51-gestion-de-personal-y-plantilla">5.1 Gestión de personal y plantilla</h3>
+<ul>
+<li>Campos base: turno habitual, adscripción habitual, nombre completo, estatus (activo/inactivo).</li>
+<li>Mantenimiento dinámico: alta ágil de ingresos y <strong>bajas lógicas</strong>.</li>
+<li>Personal sin turno fijo y/o adscripción: se soporta como caso válido, se puede seleccionar manualmente para la jornada, pero se considera inactivo.</li>
+<li>Al abrir una jornada se muestra la totalidad del personal de ese turno, con su estatus de asistencia obligatorio.</li>
+</ul>
+<h3 id="52-esquemas-de-turnos-y-calendario-proyectado">5.2 Esquemas de turnos y calendario proyectado</h3>
+<ul>
+<li><strong>Catálogo de turnos:</strong> identificador, nombre, duración en horas, hora de inicio y termino, fecha semilla.</li>
+<li><strong>Líneas de tiempo / vigencias:</strong> registro de cuándo entra en vigor un modelo operativo (turnos). Ejemplos:</li>
+<li>Histórico: del 2023-05-01 al 2024-05-24 → esquema 24x48 (T1, T2, T3).</li>
+<li>Actual: a partir de cierta fecha → esquema 24x72 (T1, T2, T3, T4).</li>
+<li>Registro historico de cambios de adscripción / turno por persona.</li>
+<li><strong>Cálculo automático de guardias:</strong> con una fecha semilla y la secuencia del esquema, el sistema sabe qué turno cubre cada día, permitiendo planear meses y años sin crear archivos separados.</li>
+<li><strong>Traslapes y continuidad 24/7:</strong> soporte para turnos que arrancan a distintas horas o cruzan hacia la madrugada siguiente. <strong>La jornada se identifica por su fecha y turno de inicio</strong>; los folios pertenecen a la jornada, no al día calendario.</li>
+</ul>
+<h3 id="53-registro-diario-y-coberturas">5.3 Registro diario y coberturas</h3>
+<ul>
+<li><strong>Asistencia / disponibilidad obligatoria:</strong> código de presencia (<code>A</code>, <code>V</code>, <code>LM</code>, <code>F</code>, <code>P</code>, <code>D</code>…). Todo el personal tiene un estado, incluso sin folio. Los códigos viven en un <strong>catálogo editable</strong> (código, descripción, color), no en el código fuente.</li>
+<li><strong>A</strong> asistencia (disponible)</li>
+<li><strong>V</strong> vacaciones (No disponible)</li>
+<li><strong>LM</strong> licencia medica (No disponible)</li>
+<li><strong>F</strong> falta (No disponible)</li>
+<li><strong>P</strong> permiso (No disponible)</li>
+<li><strong>D</strong> diligencia  (No disponible)</li>
+<li><strong>Celdas de folios y texto:</strong> tres celdas base por persona, expandibles con un botón contextual. Admiten número o texto corto. La maxima expansión de celdas 6. </li>
+<li><strong>Cobertura por única ocasión:</strong></li>
+<li>Botón <em>Agregar cobertura / Personal de otro turno/adscripción</em>.</li>
+<li>Permite elegir a un elemento de otro turno y fijar la adscripción temporal que cubrirá en esa jornada.</li>
+<li>Al concluir la jornada regresa automáticamente a su adscripción y turno habituales (no se modifica su ficha).</li>
+</ul>
+<hr />
+<h2 id="6-planeacion-futura-y-ausencias">6. Planeación futura y ausencias</h2>
+<ul>
+<li><strong>Registro individual por jornada:</strong> debido a la variedad de horarios, la rotación, las vacaciones, se programan seleccionando las jornadas específicas que le corresponde trabajar al elemento (ej. 1/ene, 5/ene, 9/ene). Cada turno tiene una cantidad de guardias especificas para tomar vacaciones.</li>
+<li><strong>Comportamiento en pantalla:</strong> al abrir esa jornada, el personal programado muestra su estatus de asistencia/disponibilidad. Las celdas de actividad muestran por defecto <code>---</code> como señal de indisponibilidad.</li>
+<li><strong>No restrictivo:</strong> las celdas no se bloquean; el coordinador puede escribir encima ante una nota extraordinaria.</li>
+</ul>
+<hr />
+<h2 id="7-organizacion-visual-y-ayuda-de-asignacion">7. Organización visual y ayuda de asignación</h2>
+<h3 id="71-barra-superior-de-control">7.1 Barra superior de control</h3>
+<ul>
+<li>Selector de fecha y turno.</li>
+<li>Filtro interactivo por adscripción.</li>
+<li>Botones: Agregar cobertura, Expandir columnas, Guardar jornada (considerar guardado automatico), Exportar a Excel.</li>
+</ul>
+<h3 id="72-cuadricula-principal">7.2 Cuadrícula principal</h3>
+<p><code>Turno | Adscripción {fondo cromático} | Nombre {completo}| Asistencia | Actividades(+) {folios o descripción}</code></p>
+<h3 id="73-contexto-historico">7.3 Contexto histórico</h3>
+<p>Columna que muestra qué folios o actividades realizó cada elemento en su <strong>guardia anterior</strong>, para balancear la carga sin abrir archivos pasados (considerar que pueden pasar guardias sin actividad, por lo tanto mostrar ultimas actividades con fecha).</p>
+<h3 id="74-avisos-no-bloqueantes-propuesta">7.4 Avisos no bloqueantes (propuesta)</h3>
+<ul>
+<li>Folio ya registrado en otra jornada o persona: aviso informativo; se puede guardar igualmente.</li>
+<li>Persona con indisponibilidad de estado <code>F</code>/<code>V</code>/<code>LM</code> que recibe folio: marca visual discreta.</li>
+<li>Folios guardados y descripción de actividad, pueden guardarse en tablas diferentes, con campos semejantes, ambos con detalle para indicar alguna propiedad.</li>
+</ul>
+<hr />
+<h2 id="8-modelo-de-datos-propuesta-conceptual-por-definir">8. Modelo de datos (propuesta conceptual por definir)</h2>
+<p>Una sola base SQLite. Tablas principales:</p>
+<table>
+<thead>
+<tr>
+<th>Tabla</th>
+<th>Propósito</th>
+<th>Campos clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>personal</code></td>
+<td>Plantilla</td>
+<td>no_empleado, nombre, turno_habitual, adscripcion_habitual, activo</td>
+</tr>
+<tr>
+<td><code>adscripcion</code></td>
+<td>Catálogo con color</td>
+<td>codigo, nombre, color, orden</td>
+</tr>
+<tr>
+<td><code>turno</code></td>
+<td>Catálogo de turnos</td>
+<td>codigo, nombre, hora_inicio, duracion_h</td>
+</tr>
+<tr>
+<td><code>esquema</code></td>
+<td>Modelo operativo</td>
+<td>id, nombre (24x48, 24x72…), secuencia de turnos</td>
+</tr>
+<tr>
+<td><code>esquema_vigencia</code></td>
+<td>Línea de tiempo</td>
+<td>esquema_id, fecha_inicio, fecha_fin, fecha_semilla</td>
+</tr>
+<tr>
+<td><code>jornada</code></td>
+<td>Una guardia concreta</td>
+<td>id, turno, fecha_inicio, inicio_real, fin_real</td>
+</tr>
+<tr>
+<td><code>registro</code></td>
+<td>Persona en una jornada</td>
+<td>id, jornada_id, persona_id, codigo_estatus, adscripcion_efectiva, es_cobertura</td>
+</tr>
+<tr>
+<td><code>folio</code></td>
+<td>Folios y notas</td>
+<td>id, registro_id, posicion, valor_texto, valor_normalizado, creado_en, modificado_en</td>
+</tr>
+<tr>
+<td><code>catalogo_estatus</code></td>
+<td>A, F, V, LM, P, D…</td>
+<td>codigo, descripcion, color, marca_celdas (<code>---</code>)</td>
+</tr>
+<tr>
+<td><code>ausencia_programada</code></td>
+<td>Vacaciones/licencias</td>
+<td>persona_id, jornada o fecha, codigo_estatus</td>
+</tr>
+</tbody>
+</table>
+<p>Índices relevantes: <code>folio(valor_normalizado)</code> para la búsqueda global, <code>registro(persona_id, jornada_id)</code> para el kardex y el contexto histórico, <code>jornada(fecha_inicio, turno)</code> único.</p>
+<p>Notas de diseño:
+- Con un único usuario y volumen de ~90 personas por ~3-4 jornadas diarias, una sola base aguanta décadas sin problemas de rendimiento.
+- <code>adscripcion_efectiva</code> en <code>registro</code> resuelve las coberturas sin tocar la ficha del personal.
+- Control de versión del esquema de la base (<code>PRAGMA user_version</code>) para poder actualizar la aplicación sin perder datos.</p>
+<hr />
+<h2 id="9-almacenamiento-portabilidad-y-rutas">9. Almacenamiento, portabilidad y rutas</h2>
+<ul>
+<li><strong>Modo standalone:</strong> un ejecutable <code>ControlOperativo.exe</code> que levanta el servidor local y abre el navegador predeterminado.</li>
+<li><strong>Ruta de base de datos configurable:</strong></li>
+<li>Por defecto, <code>control_actividades.db</code> en la carpeta del ejecutable.</li>
+<li>Ruta alternativa en <code>config.ini</code> (ej. <code>D:\Respaldos\control_actividades.db</code>).</li>
+<li><strong>Abrible por medios externos:</strong> DB Browser for SQLite, scripting o herramientas de BI.</li>
+<li><strong>Advertencia técnica:</strong> SQLite funciona bien en disco local o USB. Colocar el <code>.db</code> en una carpeta compartida de red no es recomendable (bloqueos y riesgo de corrupción). Para este caso de un solo usuario se recomienda disco local con respaldo a la red/USB, no el archivo vivo en red.</li>
+<li>libSQL como otra opción de motor BD.</li>
+</ul>
+<hr />
+<h2 id="10-consultas-reportes-y-auditoria">10. Consultas, reportes y auditoría</h2>
+<ul>
+<li><strong>Búsqueda global de folio:</strong> ingresar un número y obtener fecha, turno, jornada y elemento que lo atendió, con todas las coincidencias.</li>
+<li><strong>Kardex por elemento:</strong> histórico de folios y asistencias en un año o periodo.</li>
+<li><strong>Exportación <code>.xlsx</code>:</strong> replica colores y columnas (por jornada, por mes o por periodo) para informes. Además, exportación a <code>.csv</code>. Se aceptan varios formatos.</li>
+<li><strong>Trazabilidad:</strong> marca de tiempo de creación y modificación en cada asignación incluyendo quien.</li>
+<li><strong>Importación del histórico:</strong> migración única desde el Excel actual (oct-2026 en adelante) para no perder el historial. Los textos libres se conservan tal cual. El historico conseva la misma logica del sistema.</li>
+</ul>
+<hr />
+<h2 id="11-respaldo-y-seguridad">11. Respaldo y seguridad</h2>
+<ul>
+<li><strong>Respaldo en un clic:</strong> copia íntegra con nombre fechado (ej. <code>respaldo_2026-10-08.db</code>).</li>
+<li><strong>Consistencia:</strong> el respaldo debe hacerse con la <strong>API de respaldo de SQLite</strong> (no copiando el archivo en uso), para evitar copias inconsistentes.</li>
+<li><strong>Respaldo automático opcional:</strong> al cerrar la aplicación o una vez al día, conservando las últimas <em>N</em> copias.</li>
+<li><strong>Respaldo físico:</strong> al ser un único archivo, puede copiarse a USB en cualquier momento.</li>
+<li><strong>Seguridad local:</strong> el servidor escucha solo en <code>127.0.0.1</code>. Sin cuentas de usuario por ser monousuario. Opcionalmente, cifrado del respaldo si contiene datos sensibles del personal.</li>
+<li><strong>Datos personales:</strong> el archivo contiene nombres y datos de ausencias (incluidas licencias médicas); conviene definir dónde se almacenan los respaldos y quién tiene acceso a ellos.</li>
+</ul>
+<hr />
+<h2 id="12-consideraciones-tecnicas-python">12. Consideraciones técnicas (Python)</h2>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Opción sugerida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servidor local</td>
+<td>Flask o FastAPI + servidor WSGI/ASGI embebido (waitress / uvicorn)</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td><code>sqlite3</code> de la biblioteca estándar (o SQLAlchemy si se desea ORM)</td>
+</tr>
+<tr>
+<td>Interfaz</td>
+<td>HTML + JavaScript ligero, sin necesidad de internet; cuadrícula editable con teclado propio o una librería de rejilla ligera</td>
+</tr>
+<tr>
+<td>Exportación Excel</td>
+<td><code>openpyxl</code> o <code>XlsxWriter</code> (no requieren Office)</td>
+</tr>
+<tr>
+<td>Empaquetado</td>
+<td>PyInstaller (modo <em>onefile</em> o <em>onedir</em>)</td>
+</tr>
+<tr>
+<td>Recursos locales</td>
+<td>Todos los archivos estáticos (JS/CSS) incluidos dentro del paquete; nada que dependa de CDN</td>
+</tr>
+</tbody>
+</table>
+<p>Riesgos conocidos del empaquetado:
+- <strong>Antivirus / SmartScreen:</strong> los ejecutables de PyInstaller suelen dar falsos positivos, sobre todo en entornos institucionales. Mitigación: firmar el ejecutable si es posible, usar <em>onedir</em> (suele dar menos alertas que <em>onefile</em>).
+- <strong>Arranque más lento en <em>onefile</em></strong>, porque se descomprime en cada ejecución.
+- <strong>Rutas:</strong> al estar empaquetado, usar rutas relativas a la ubicación del ejecutable (no al directorio de trabajo) para localizar <code>config.ini</code> y la base de datos.
+- <strong>Puerto:</strong> elegir un puerto libre automáticamente y controlar que <em>no se abra más de una instancia</em>.
+- <strong>Navegador:</strong> definir navegadores soportados (Edge/Chrome/Firefox) y probar la navegación con teclado.</p>
+<hr />
+<h2 id="13-puntos-por-definir-para-implementar">13. Puntos por definir para implementar</h2>
+<p>Definido en <a href="doc/catalogos.html"><code>catalogos</code></a></p>
+<hr />
+<h2 id="14-plan-de-trabajo-sugerido-cuando-se-autorice-implementar">14. Plan de trabajo sugerido (cuando se autorice implementar)</h2>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Contenido</th>
+<th>Resultado</th>
+<th>Cumplido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0. Definición</strong></td>
+<td>Resolver los puntos de la sección 13</td>
+<td>Catálogos y reglas cerradas</td>
+<td>[✔️]</td>
+</tr>
+<tr>
+<td><strong>1. Datos</strong></td>
+<td>Esquema SQLite, catálogos, script de importación del Excel actual</td>
+<td>Base con el histórico migrado y verificado</td>
+<td>[ ]</td>
+</tr>
+<tr>
+<td><strong>2. Captura</strong></td>
+<td>Pantalla de jornada: selector fecha/turno, filtros, cuadrícula con teclado, folios expandibles</td>
+<td>Operación diaria equivalente al Excel</td>
+<td>[ ]</td>
+</tr>
+<tr>
+<td><strong>3. Calendario</strong></td>
+<td>Esquemas, vigencias, proyección de guardias, vacaciones/licencias</td>
+<td>Planeación futura</td>
+<td>[ ]</td>
+</tr>
+<tr>
+<td><strong>4. Consulta</strong></td>
+<td>Búsqueda global de folio, kardex, contexto histórico, avisos de duplicado</td>
+<td>Valor adicional sobre el Excel</td>
+<td>[ ]</td>
+</tr>
+<tr>
+<td><strong>5. Salida</strong></td>
+<td>Exportación a <code>.xlsx</code>/<code>.csv</code>, respaldo, <code>config.ini</code></td>
+<td>Recuperación y reportes</td>
+<td>[ ]</td>
+</tr>
+<tr>
+<td><strong>6. Empaquetado</strong></td>
+<td>Ejecutable, pruebas en la PC real y en USB, prueba con antivirus</td>
+<td>Entregable portable</td>
+<td>[ ]</td>
+</tr>
+</tbody>
+</table>
+<p><em>Criterio de aceptación general:</em> el operador puede capturar una jornada completa solo con teclado, cerrar la aplicación, copiar el <code>.db</code> a otra PC, abrirlo y encontrar toda la información; y el histórico actual de Excel está consultable por folio y por persona.</p>
+<hr />
+<h2 id="15-resumen-ejecutivo">15. Resumen ejecutivo</h2>
+<ul>
+<li>Sustituir el Excel horizontal por una <strong>app local en Python</strong> con <strong>una sola base SQLite</strong> que concentra todo el histórico.</li>
+<li>Interfaz <strong>idéntica en lógica</strong> a la actual: cuadrícula por turno y adscripción con colores y teclado.</li>
+<li>Una jornada es una guardia por turno que puede cruzar al día siguiente; <strong>los folios cuelgan de la jornada</strong>.</li>
+<li><strong>Esquemas de turnos con vigencias</strong> para proyectar guardias, vacaciones y licencias a futuro, sin bloquear nunca la captura.</li>
+<li><strong>Búsqueda de folios, kardex y contexto de guardia anterior</strong> para balancear la carga.</li>
+<li><strong>Recuperabilidad total:</strong> archivo <code>.db</code> abrible con herramientas estándar, respaldo en un clic y exportación a Excel.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "search.suggest"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
