@@ -62,5 +62,5 @@ exclude_docs: |
   .github/
   site/
   venv/
-  # Plantilla del tablero (la usa build.py); choca con el index.html que MkDocs genera del README
-  informes/diario_src/index.html
+  # Plantilla sin compilar del tablero (la usa build.py); se publica solo dist/tablero_peritos.html
+  informes/diario_src/template.html
