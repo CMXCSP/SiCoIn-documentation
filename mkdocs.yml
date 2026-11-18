@@ -33,7 +33,9 @@ theme:
 # Estructura del menú lateral
 nav:
   - Inicio: README.md
-  - Informes: informes/README.md
+  - Informes:
+  # El README base de informes debe ser un sub-elemento
+    - Resumen de Informes: informes/README.md
     - Control Operativo: informes/control_operativo_src/README.md
     - Informe Diario: informes/diario_src/README.md
   
@@ -47,3 +49,4 @@ exclude_docs: |
   .git/
   .github/
   site/
+  venv/
