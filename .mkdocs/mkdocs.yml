@@ -51,7 +51,15 @@ nav:
     - Notas de base de datos: DataBase/info.md
   - Instalación de MkDocs: docs/instalar_mkdocs.md
   
-# 
+# Habilita diagramas Mermaid en bloques ```mermaid
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+#
 plugins:
   - search:
       lang: [es, en]
