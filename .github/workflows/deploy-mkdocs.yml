@@ -1,0 +1,31 @@
+name: Publicar Documentación (Compilar y Desplegar MkDocs)
+
+on:
+  push:
+    branches:
+      - main  # Cambia a 'main' o 'master' si esa es tu rama principal
+    paths:
+      - '**/*.md'       # Ejecuta si hay cambios en cualquier archivo Markdown en el repositorio
+      - 'mkdocs.yml'    # O si cambia la configuración del sitio
+
+permissions:
+  contents: write  # Crítico: permite que la acción escriba el HTML en tu repositorio
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Instalar dependencias
+        run: pip install mkdocs-material
+
+      - name: Compilar y desplegar en GitHub Pages
+        # Este comando compila el HTML y lo sube a una rama oculta llamada gh-pages
+        run: mkdocs gh-deploy --force

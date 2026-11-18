@@ -1,0 +1,49 @@
+site_name: SiCoIn Documentación
+site_description: Manual técnico y arquitectónico del sistema.
+site_author: alexannotations
+site_url: https://cmxcsp.github.io/SiCoIn-documentation/
+# Cambiar a 'true' cuando se despliegue en el servidor Apache de RHEL para tener URLs limpias sin .html
+use_directory_urls: false     # Necesario para navegar dando doble clic a los HTML (explorador de archivos)
+docs_dir: '.'   # INDICA QUE LA DOCUMENTACIÓN ESTÁ EN LA RAÍZ DEL REPOSITORIO
+
+# Configuración del tema Material
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs # Navegación superior por pestañas
+    - navigation.top  # Botón para volver arriba
+    - search.suggest  # Autocompletado en el buscador local
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+# Estructura del menú lateral
+nav:
+  - Inicio: README.md
+  - Informes: informes/README.md
+    - Control Operativo: informes/control_operativo_src/README.md
+    - Informe Diario: informes/diario_src/README.md
+  
+# 
+plugins:
+  - search:
+      lang: [es, en]
+
+# Protege tu compilación ignorando carpetas de sistema
+exclude_docs: |
+  .git/
+  .github/
+  site/

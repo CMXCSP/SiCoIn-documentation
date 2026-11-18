@@ -1,3 +1,7 @@
 # drawio backup
 *.bkp
 *.dtmp
+
+# entorno virtual pip
+.venv/
+site/
