@@ -67,9 +67,9 @@ end
 
 ## Vehiculos asegurados
 Un vehiculo tiene dos campos (< asegurado>, < insurancecompany_id>) con dos opciones para indicar el seguro.
-  - Cuenta con seguro. (true , '< nombreCompañia>') no puede ser (true, null)
-  - Sin seguro. (false, null) no puede ser (false, '< vacio> o < nombreCompañia>')
-        podria ser (false, 'Sin seguro') pero hay que modificar los valores de la tabla de seguros inutilizando el campo < asegurado>, si no se selecciona opción queda (false, null)
+
+- Cuenta con seguro. (true , '< nombreCompañia>') no puede ser (true, null)
+- Sin seguro. (false, null) no puede ser (false, '< vacio> o < nombreCompañia>') podria ser (false, 'Sin seguro') pero hay que modificar los valores de la tabla de seguros inutilizando el campo < asegurado>, si no se selecciona opción queda (false, null)
 
 
 
