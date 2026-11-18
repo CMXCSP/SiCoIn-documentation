@@ -32,30 +32,27 @@ En las solicitudes de valuación de daños existen varias posibilidades al no ex
 ```mermaid
 flowchart LR
 
-subgraph Daño Culposo
+subgraph sc ["Daño Culposo"]
 direction TB
     dt("Tránsito") -- sugiere --> dm("Mecánico")
     dt("Tránsito") -- sugiere --> db("Bienes")
 end
 
-subgraph Carpeta de Investigación 
+subgraph sci ["Carpeta de Investigación"]
 direction TB
-    Carpeta --requiere-->
-    ct("Tránsito") -- sugiere --> cm("Mecánico")
+    Carpeta --requiere--> ct("Tránsito") -- sugiere --> cm("Mecánico")
     ct("Tránsito") -- "sugiere" --> cb("Bienes")
     Carpeta --requiere--> cob("Bienes")
 end
 
-subgraph Daño Patrimonial 
+subgraph sdp ["Daño Patrimonial"]
 direction TB
     Patrimonial --requiere--> pt("Tránsito") -- sugiere --> pm("Mecánico")
     bc{{"Bache, coladera"}}
-    ptb("Aunque ha pasado NO considerar 
-        Tránsito -> Bienes
-        El juez debe crear nuevo procedimiento conforme a la ley") 
+    ptb("Aunque ha pasado NO considerar <br/> Tránsito -> Bienes <br/> El juez debe crear nuevo procedimiento conforme a la ley") 
 end
 
-subgraph Valuación de Daños
+subgraph svd ["Valuación de Daños"]
 direction TB
     Valuación --requiere--> vb("Bienes") --por--> vg{{"Grafiti"}}
     vb("Bienes") --considere--> vbm{{"NO existe mecánico"}}
