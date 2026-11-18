@@ -70,7 +70,5 @@ exclude_docs: |
   .github/
   site/
   venv/
-  # Instrucciones internas para el asistente, no forman parte de la documentación
-  CLAUDE.md
-  # Plantilla sin compilar del tablero (la usa build.py); se publica solo dist/tablero_peritos.html
-  informes/diario_src/template.html
+  CLAUDE.md                            # Instrucciones internas para el asistente, no forman parte de la documentación
+  informes/diario_src/template.html    # Plantilla sin compilar del tablero (la usa build.py); se publica solo dist/tablero_peritos.html
