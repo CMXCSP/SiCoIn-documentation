@@ -22,6 +22,7 @@ Para unificar las intervenciones en el "procedimiento virtual" de _daño patrimo
 
 
 Datos a tomar para el tipo de procedimiento:
+
 |               ||__Patrimonial__   |||
 |-|-|-|-|-|
 |_Generales_    ||✔️                |||
