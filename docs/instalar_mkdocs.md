@@ -25,3 +25,13 @@ pip install mkdocs-material
 ```Bash
 mkdocs --version
 ```
+
+
+**Compilar y previsualizar**: La configuración está en `.mkdocs/mkdocs.yml` (MkDocs no permite usar como `docs_dir` la misma carpeta del archivo de configuración). Desde la raíz del repositorio:
+```Bash
+mkdocs serve -f .mkdocs/mkdocs.yml
+```
+```Bash
+mkdocs build -f .mkdocs/mkdocs.yml
+```
+El sitio compilado se genera fuera del repositorio, en `../SiCoIn-documentation-site`.

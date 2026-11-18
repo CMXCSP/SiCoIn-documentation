@@ -1,7 +1,8 @@
 ## Procedimiento
 
 Datos a tomar para el tipo de procedimiento:
-|               |__Daño__|__Carpeta__|__Patrimonial__|__Valuación__||
+
+||__Daño__|__Carpeta__|__Patrimonial__|__Valuación__||
 |-|-|-|-|-|-|
 |_Generales_    |✔️     |✔️         |✔️             |✔️          ||
 |_Lugar_        |✔️     |✔️         |✔️             |✔️          ||

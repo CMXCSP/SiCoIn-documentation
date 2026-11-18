@@ -4,7 +4,11 @@ site_author: alexannotations
 site_url: https://cmxcsp.github.io/SiCoIn-documentation/
 # Cambiar a 'true' cuando se despliegue en el servidor Apache de RHEL para tener URLs limpias sin .html
 use_directory_urls: false     # Necesario para navegar dando doble clic a los HTML (explorador de archivos)
-docs_dir: '.'   # INDICA QUE LA DOCUMENTACIÓN ESTÁ EN LA RAÍZ DEL REPOSITORIO
+# MkDocs no permite que docs_dir sea la carpeta del propio mkdocs.yml, por eso este
+# archivo vive en .mkdocs/ y apunta a la raíz del repositorio (las carpetas ocultas se ignoran).
+docs_dir: '..'   # INDICA QUE LA DOCUMENTACIÓN ESTÁ EN LA RAÍZ DEL REPOSITORIO
+# site_dir no puede estar dentro de docs_dir: se genera junto al repositorio, fuera de él.
+site_dir: '../../SiCoIn-documentation-site'
 
 # Configuración del tema Material
 theme:
@@ -38,6 +42,14 @@ nav:
     - Resumen de Informes: informes/README.md
     - Control Operativo: informes/control_operativo_src/README.md
     - Informe Diario: informes/diario_src/README.md
+    - Catálogos (Control Operativo): informes/control_operativo_src/doc/catalogos.md
+  - Lógica:
+    - Análisis: logica/analisis.md
+    - Discusión y propuesta: logica/discusion_propuesta.md
+  - Diseño:
+    - Jerarquía de menús: mockups_wireframe/jerarquias_menus.md
+    - Notas de base de datos: DataBase/info.md
+  - Instalación de MkDocs: docs/instalar_mkdocs.md
   
 # 
 plugins:
@@ -50,3 +62,5 @@ exclude_docs: |
   .github/
   site/
   venv/
+  # Plantilla del tablero (la usa build.py); choca con el index.html que MkDocs genera del README
+  informes/diario_src/index.html
