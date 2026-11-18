@@ -42,6 +42,14 @@ nav:
     - Resumen de Informes: informes/README.md
     - Control Operativo: informes/control_operativo_src/README.md
     - Informe Diario: informes/diario_src/README.md
+    - Catálogos (Control Operativo): informes/control_operativo_src/doc/catalogos.md
+  - Lógica:
+    - Análisis: logica/analisis.md
+    - Discusión y propuesta: logica/discusion_propuesta.md
+  - Diseño:
+    - Jerarquía de menús: mockups_wireframe/jerarquias_menus.md
+    - Notas de base de datos: DataBase/info.md
+  - Instalación de MkDocs: docs/instalar_mkdocs.md
   
 # 
 plugins:
