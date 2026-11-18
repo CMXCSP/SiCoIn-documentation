@@ -7,7 +7,7 @@ ROOT = Path(__file__).parent
 JS_ORDER = ["config", "data", "state", "charts", "cards", "app"]   # el orden importa
 
 def main():
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    html = (ROOT / "template.html").read_text(encoding="utf-8")
     css = (ROOT / "styles.css").read_text(encoding="utf-8")
     js = "\n".join((ROOT / "js" / f"{n}.js").read_text(encoding="utf-8") for n in JS_ORDER)
     lib = (ROOT / "vendor" / "xlsx.mini.min.js").read_text(encoding="utf-8")

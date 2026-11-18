@@ -105,7 +105,7 @@ python build.py
 
 | Archivo | Contenido |
 |---|---|
-| `index.html` | Estructura fija de la página: barra superior, zona de carga, panel de filtros y zonas donde se insertan las tarjetas. |
+| `template.html` | Plantilla con la estructura fija de la página: barra superior, zona de carga, panel de filtros y zonas donde se insertan las tarjetas. |
 | `styles.css` | Estilos, tema claro/oscuro, diseño adaptable e impresión. |
 | `js/config.js` | Catálogo de alcaldías, **esquema de hojas y columnas** y utilidades. |
 | `js/data.js` | Lectura del Excel, combinación de archivos, cálculos fijos y diagnóstico de faltantes. |
