@@ -51,7 +51,15 @@ nav:
     - Notas de base de datos: DataBase/info.md
   - Instalación de MkDocs: docs/instalar_mkdocs.md
   
-# 
+# Habilita diagramas Mermaid en bloques ```mermaid
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+#
 plugins:
   - search:
       lang: [es, en]
@@ -62,7 +70,6 @@ exclude_docs: |
   .github/
   site/
   venv/
-  # Instrucciones internas para el asistente, no forman parte de la documentación
-  CLAUDE.md
-  # Plantilla sin compilar del tablero (la usa build.py); se publica solo dist/tablero_peritos.html
-  informes/diario_src/template.html
+  CLAUDE.md                            # Instrucciones internas para el asistente, no forman parte de la documentación
+  informes/diario_src/template.html    # Plantilla sin compilar del tablero (la usa build.py); se publica solo dist/tablero_peritos.html
+

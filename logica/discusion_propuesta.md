@@ -22,6 +22,7 @@ Para unificar las intervenciones en el "procedimiento virtual" de _daño patrimo
 
 
 Datos a tomar para el tipo de procedimiento:
+
 |               ||__Patrimonial__   |||
 |-|-|-|-|-|
 |_Generales_    ||✔️                |||
@@ -41,14 +42,14 @@ flowchart TB
     pm --por--> bc{{"Bache, coladera, etc"}}
     Patrimonial --requiere--> pt("Tránsito") -- sugiere --> pm("Mecánico")
 
-    Patrimonial --requiere valuación--> vb("Bienes") --por-->
-    vg{{"Grafiti"}}
-    vm("NO existe mecánico")
+    Patrimonial --requiere valuación--> vb("Bienes")
+    vb --por--> vg{{"Grafiti"}}
+    vb -.nota-.- vnm("NO existe mecánico")
 
     Patrimonial --requiere valuación--> vm("Mecánico") --por--> cra{{"Caída de rama o árbol"}}
 
     ptb("Aunque ha pasado NO considerar 
-        Tránsito -> Bienes
+        Tránsito (patrimonial) --> Bienes
         El juez debe crear nuevo procedimiento conforme a la ley") 
 
 
